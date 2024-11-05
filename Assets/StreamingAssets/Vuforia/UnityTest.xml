@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="tyrannosaurus" size="5.000000 3.078642" />
+    <ImageTarget name="triceratops" size="5.000000 2.988997" />
+    <ImageTarget name="stegosaurus" size="5.000000 3.048556" />
+  </Tracking>
+</QCARConfig>
