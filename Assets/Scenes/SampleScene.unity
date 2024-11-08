@@ -304,6 +304,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7232241048097875652, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
       propertyPath: m_Name
       value: KnightModel
@@ -313,7 +317,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -2922051811116512275, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+    - {fileID: 2856234247975315476, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+    - {fileID: -4025133613917730222, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+    - {fileID: 3899312069614297733, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+    - {fileID: -7232241048097875652, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
       insertIndex: -1
@@ -1638,7 +1647,7 @@ RectTransform:
   m_Father: {fileID: 2025198616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2987,16 +2996,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7232241048097875652, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4025133613917730222, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3198420049219177596, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2922051811116512275, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
       propertyPath: m_Name
       value: KnightModel
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856234247975315476, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862085102932151524, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899312069614297733, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -7232241048097875652, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+    - {fileID: 2856234247975315476, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+    - {fileID: -4025133613917730222, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+    - {fileID: 3899312069614297733, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+    - {fileID: -2922051811116512275, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
       insertIndex: -1
