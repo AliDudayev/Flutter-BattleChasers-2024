@@ -29,6 +29,9 @@ public class CharacterController : MonoBehaviour
     private bool isAttacking = false;  // To track if the character is attacking
     private bool isDead = false;  // To track if the character is dead
 
+    private float comboTimer = 0;
+    private float damageTimer = 0;
+
     void Start()
     {
         // Get Rigidbody component
@@ -48,6 +51,21 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         if (isDead) return;
+
+        if(damageTimer > 0)
+        {
+            damageTimer -= Time.deltaTime;
+            if(damageTimer <= 0)
+            {
+                isAttacking = false;
+            }
+        }
+        if(comboTimer > 0)
+        {
+            comboTimer -= Time.deltaTime;
+            animator.SetTrigger("Attack");
+            //Debug.Log("Combo");
+        }
 
         // Basic Input
         float horizontal = Input.GetAxis("Horizontal");
@@ -77,9 +95,22 @@ public class CharacterController : MonoBehaviour
         //}
 
         // Attack
-        if (Input.GetButtonDown("Fire1") && !isAttacking)
+        if (Input.GetButtonDown("Fire1"))
         {
-            StartCoroutine(Attack());  // Start attack coroutine to prevent rapid spamming
+            //StartCoroutine(Attack());  // Start attack coroutine to prevent rapid spamming
+
+            //Attack();
+
+            if(damageTimer <= 0)
+            {
+                damageTimer = 1.2f;
+                animator.SetTrigger("Attack");
+                isAttacking = true;
+            }
+            else
+            {
+                comboTimer = 0.01f;
+            }
         }
 
         // Handle death (just for demonstration, e.g. pressing a key)
@@ -123,13 +154,19 @@ public class CharacterController : MonoBehaviour
     }
 
     // Attack Coroutine to handle attack animation timing
-    private IEnumerator Attack()
-    {
-        isAttacking = true;
-        animator.SetTrigger("Attack");  // Trigger attack animation
-        yield return new WaitForSeconds(1f);  // Assuming the attack animation takes 1 second
-        isAttacking = false;
-    }
+    //private IEnumerator Attack()
+    //{
+    //    isAttacking = true;
+    //    animator.SetTrigger("Attack");  // Trigger attack animation
+    //    yield return new WaitForSeconds(1f);  // Assuming the attack animation takes 1 second
+    //    isAttacking = false;
+    //}
+    //private void Attack()
+    //{
+    //    isAttacking = true;
+    //    animator.SetTrigger("Attack");
+    //    damageTimer += 1f;
+    //}
 
     // Death Coroutine to handle death animation
     private IEnumerator Die()
