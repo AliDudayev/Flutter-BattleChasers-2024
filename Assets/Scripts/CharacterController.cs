@@ -6,28 +6,29 @@ using UnityEngine.UI;
 public class CharacterController : MonoBehaviour
 {
     [Header("Character Settings")]
-    public float strength = 100f;
-    public float maxHealth = 1000f;
-    private float health;
-    private Slider slider;
+    [SerializeField] float strength = 100f;
+    //[SerializeField] float maxHealth = 1000f;
+    //private float health;
+    //private Slider slider;
     //private float stamina = 90f;
 
     [Header("Movement Settings")]
-    public float moveSpeed = 5f;
-    public float rotationSpeed = 720f;
+    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float rotationSpeed = 720f;
 
-    [Header("Jump Settings")]
-    public float jumpForce = 5f;
-    public bool isGrounded;
-    public LayerMask groundMask;
+    //[Header("Jump Settings")]
+    //[SerializeField] float jumpForce = 5f;
+    //[SerializeField] bool isGrounded;
+    //[SerializeField] LayerMask groundMask;
 
-    public Animator animator;
+    [Header("Animations")]
+    [SerializeField] Animator animator;
 
     private Rigidbody rb;
     private Vector3 moveDirection;
 
-    private bool isAttacking = false;  // To track if the character is attacking
-    private bool isDead = false;  // To track if the character is dead
+    private bool isAttacking = false;  
+    private bool isDead = false;  
 
     private float comboTimer = 0;
     private float damageTimer = 0;
@@ -42,10 +43,10 @@ public class CharacterController : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
-        health = maxHealth;
-        slider = GetComponentInChildren<Slider>();
-        slider.maxValue = maxHealth;
-        slider.value = health;
+        //health = maxHealth;
+        //slider = GetComponentInChildren<Slider>();
+        //slider.maxValue = maxHealth;
+        //slider.value = health;
     }
 
     void Update()
@@ -114,10 +115,10 @@ public class CharacterController : MonoBehaviour
         }
 
         // Handle death (just for demonstration, e.g. pressing a key)
-        if (Input.GetButtonDown("Fire2") && !isDead)
-        {
-            ApplyDamage(200);  // Trigger death animation when pressing another key
-        }
+        //if (Input.GetButtonDown("Fire2") && !isDead)
+        //{
+        //    ApplyDamage(200);  // Trigger death animation when pressing another key
+        //}
     }
 
     void FixedUpdate()
@@ -133,25 +134,25 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        // Check if the character is grounded
-        if ((groundMask.value & (1 << collision.gameObject.layer)) > 0)
-        {
-            isGrounded = true;
-            //animator.SetBool("isGrounded", true);  // Set grounded status in the animator
-        }
-    }
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    // Check if the character is grounded
+    //    if ((groundMask.value & (1 << collision.gameObject.layer)) > 0)
+    //    {
+    //        isGrounded = true;
+    //        //animator.SetBool("isGrounded", true);  // Set grounded status in the animator
+    //    }
+    //}
 
-    void OnCollisionExit(Collision collision)
-    {
-        // Reset grounded status when leaving ground
-        if ((groundMask.value & (1 << collision.gameObject.layer)) > 0)
-        {
-            isGrounded = false;
-            //animator.SetBool("isGrounded", false);  // Set grounded status in the animator
-        }
-    }
+    //void OnCollisionExit(Collision collision)
+    //{
+    //    // Reset grounded status when leaving ground
+    //    if ((groundMask.value & (1 << collision.gameObject.layer)) > 0)
+    //    {
+    //        isGrounded = false;
+    //        //animator.SetBool("isGrounded", false);  // Set grounded status in the animator
+    //    }
+    //}
 
     // Attack Coroutine to handle attack animation timing
     //private IEnumerator Attack()
@@ -169,30 +170,31 @@ public class CharacterController : MonoBehaviour
     //}
 
     // Death Coroutine to handle death animation
-    private IEnumerator Die()
-    {
-        isDead = true;
-        animator.SetTrigger("Death");  // Trigger death animation
-        yield return new WaitForSeconds(2f);  // Wait for death animation to finish (assuming 2 seconds)
-        // Optionally, disable the character or handle further game logic here
-    }
 
-    public void ApplyDamage(float damage)
-    {
-        health -= damage;
-        slider.value = health;
-        if (health <= 0 && !isDead)
-        {
-            StartCoroutine(Die());  // Trigger death animation when pressing another key
-        }
-    }
+    //public void ApplyDamage(float damage)
+    //{
+    //    health -= damage;
+    //    slider.value = health;
+    //    if (health <= 0 && !isDead)
+    //    {
+    //        StartCoroutine(Die());  // Trigger death animation when pressing another key
+    //    }
+    //}
 
-    public void Attack(float staminaCost)
-    {
-        //stamina -= staminaCost;
-        ApplyDamage(strength * ((staminaCost / 10) * 1.1f));
-        Debug.Log(strength * ((staminaCost / 10) * 1.1f));
-    }
+    //private IEnumerator Die()
+    //{
+    //    isDead = true;
+    //    animator.SetTrigger("Death");  // Trigger death animation
+    //    yield return new WaitForSeconds(2f);  // Wait for death animation to finish (assuming 2 seconds)
+    //    // Optionally, disable the character or handle further game logic here
+    //}
+
+    //public void Attack(float staminaCost)
+    //{
+    //    //stamina -= staminaCost;
+    //    ApplyDamage(strength * ((staminaCost / 10) * 1.1f));
+    //    Debug.Log(strength * ((staminaCost / 10) * 1.1f));
+    //}
 
     //public void Guard()
     //{
