@@ -71,6 +71,12 @@ public class CharacterController : MonoBehaviour
             //animator.SetTrigger("Attack");
             //Debug.Log("Combo");
         }
+        else if(comboTimer <= 0 && isAttacking)
+        {
+            isAttacking = false;
+            //attackCollider.SetIsAttacking(false);
+            animator.SetBool("Attacking", false);
+        }
 
         // Basic Input
         float horizontal = Input.GetAxis("Horizontal");

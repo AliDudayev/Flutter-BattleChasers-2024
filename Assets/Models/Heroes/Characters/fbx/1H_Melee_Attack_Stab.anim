@@ -47470,7 +47470,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 1.6
+  - time: 1.2
     functionName: SetAttack
     data: 
     objectReferenceParameter: {fileID: 0}
