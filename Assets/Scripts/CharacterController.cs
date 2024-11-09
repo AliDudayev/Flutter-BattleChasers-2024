@@ -22,16 +22,20 @@ public class CharacterController : MonoBehaviour
     //[SerializeField] LayerMask groundMask;
 
     [Header("Animations")]
-    [SerializeField] Animator animator;
+    private Animator animator;
+
+    [Header("Attack")]
+    [SerializeField] AttackCollider attackCollider;
 
     private Rigidbody rb;
     private Vector3 moveDirection;
 
-    private bool isAttacking = false;  
+    //private bool isAttacking = false;  
     private bool isDead = false;  
 
     private float comboTimer = 0;
-    private float damageTimer = 0;
+    //private float damageTimer = 0;
+    private bool isAttacking = false;
 
     void Start()
     {
@@ -53,18 +57,18 @@ public class CharacterController : MonoBehaviour
     {
         if (isDead) return;
 
-        if(damageTimer > 0)
-        {
-            damageTimer -= Time.deltaTime;
-            if(damageTimer <= 0)
-            {
-                isAttacking = false;
-            }
-        }
+        //if(damageTimer > 0)
+        //{
+        //    damageTimer -= Time.deltaTime;
+        //    //if(damageTimer <= 0)
+        //    //{
+        //    //    attackCollider.SetIsAttacking(false);
+        //    //}
+        //}
         if(comboTimer > 0)
         {
             comboTimer -= Time.deltaTime;
-            animator.SetTrigger("Attack");
+            //animator.SetTrigger("Attack");
             //Debug.Log("Combo");
         }
 
@@ -102,15 +106,16 @@ public class CharacterController : MonoBehaviour
 
             //Attack();
 
-            if(damageTimer <= 0)
+            if(isAttacking == false)
             {
-                damageTimer = 1.2f;
-                animator.SetTrigger("Attack");
-                isAttacking = true;
+                //damageTimer = 1.2f;
+                //animator.SetTrigger("Attack");
+                //attackCollider.SetIsAttacking(true);
+                animator.SetBool("Attacking", true);
             }
             else
             {
-                comboTimer = 0.01f;
+                comboTimer = 0.5f;
             }
         }
 
@@ -119,6 +124,24 @@ public class CharacterController : MonoBehaviour
         //{
         //    ApplyDamage(200);  // Trigger death animation when pressing another key
         //}
+    }
+
+    private void SetAttack(int playerIsAttacking)
+    {
+        if(playerIsAttacking == 1)
+        {
+            isAttacking = true;
+            attackCollider.SetIsAttacking(true);
+        }
+        else
+        {
+            if(comboTimer <= 0)
+            {
+                isAttacking = false;
+                attackCollider.SetIsAttacking(false);
+                animator.SetBool("Attacking", false);
+            }
+        }
     }
 
     void FixedUpdate()
