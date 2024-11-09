@@ -15,6 +15,8 @@ public class Health : MonoBehaviour
 
     private bool isDead = false;
 
+    private int attackID = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,16 @@ public class Health : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public int GetAttackID()
+    {
+        return attackID;
+    }
+
+    public void SetAttackID(int newAttackId)
+    {
+        attackID = newAttackId;
     }
 
     public void ApplyDamage(float damage)

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CharacterController : MonoBehaviour
 {
     [Header("Character Settings")]
-    [SerializeField] float strength = 100f;
+    [SerializeField] int strength = 100;
     //[SerializeField] float maxHealth = 1000f;
     //private float health;
     //private Slider slider;
@@ -46,6 +46,8 @@ public class CharacterController : MonoBehaviour
         rb.freezeRotation = true;
 
         animator = GetComponent<Animator>();
+
+        attackCollider.SetPower((int)strength);
 
         //health = maxHealth;
         //slider = GetComponentInChildren<Slider>();
@@ -138,6 +140,7 @@ public class CharacterController : MonoBehaviour
         {
             isAttacking = true;
             attackCollider.SetIsAttacking(true);
+
         }
         else
         {
