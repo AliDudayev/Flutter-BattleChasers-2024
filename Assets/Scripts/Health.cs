@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     private Slider slider;
 
     [Header("Animations")]
-    [SerializeField] Animator animator;
+    private Animator animator;
 
     private bool isDead = false;
 
