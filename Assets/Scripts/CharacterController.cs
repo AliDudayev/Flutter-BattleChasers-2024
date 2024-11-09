@@ -17,6 +17,7 @@ public class CharacterController : MonoBehaviour
 
     [Header("Attack")]
     [SerializeField] AttackCollider attackCollider;
+    [SerializeField] List<ParticleSystem> particleSystems;
 
     private Rigidbody rb;
     private Vector3 moveDirection;
@@ -92,7 +93,6 @@ public class CharacterController : MonoBehaviour
         {
             isAttacking = true;
             attackCollider.SetIsAttacking(true);
-
         }
         else
         {
@@ -102,6 +102,46 @@ public class CharacterController : MonoBehaviour
                 attackCollider.SetIsAttacking(false);
                 animator.SetBool("Attacking", false);
             }
+        }
+    }
+
+    private void PlayParticle(int particleToPlay)
+    {
+        GameObject particleObject = particleSystems[0].gameObject;
+
+        switch (particleToPlay)
+        {
+            case 0:
+                particleObject.transform.localPosition = new Vector3(0.06f, 0.93f, 0.6199999f);
+                particleObject.transform.localRotation = Quaternion.Euler(-28.542f, -49.916f, -21.906f);
+
+                particleSystems[0].Play();
+                break;
+            case 1:
+                particleObject.transform.localPosition = new Vector3(0.51f, 0.62f, 0.6199999f);
+                particleObject.transform.localRotation = Quaternion.Euler(-53.672f, 17.286f, -111.12f);
+
+                particleSystems[0].Play();
+                break;
+            case 2:
+                particleObject.transform.localPosition = new Vector3(0f, 0.733f, 0.6199999f);
+                particleObject.transform.localRotation = Quaternion.Euler(-22.921f, -52.11f, -16.861f);
+
+                particleSystems[0].Play();
+                break;
+            case 3:
+                particleSystems[1].Play();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void StopParticle(int particleToPlay)
+    {
+        if (particleToPlay < particleSystems.Count && particleToPlay >= 0)
+        {
+            particleSystems[particleToPlay].Stop();
         }
     }
 
