@@ -36,15 +36,6 @@ public class PlayerFinder : MonoBehaviour
                 GameObject instantiatedCharacter = Instantiate(Character, transform);
                 //instantiatedCharacter.SetActive(true);
 
-                //foreach (var renderer in instantiatedCharacter.GetComponentsInChildren<SkinnedMeshRenderer>(true))
-                //{
-                //    renderer.enabled = true;
-                //}
-                //foreach (var canvas in instantiatedCharacter.GetComponentsInChildren<Canvas>(true))
-                //{
-                //    canvas.enabled = true;
-                //}
-
                 // Enable all children and components recursively
                 EnableAllComponents(instantiatedCharacter);
 
@@ -82,10 +73,5 @@ public class PlayerFinder : MonoBehaviour
 
         transform.position = behaviour.transform.position;
         transform.rotation = behaviour.transform.rotation;
-
-        //SkinnedMeshRenderer skinnedMeshRenderer = instantiatedCharacter.GetComponentInChildren<SkinnedMeshRenderer>();
-        //skinnedMeshRenderer.enabled = true;
-        //Canvas canvas = instantiatedCharacter.GetComponentInChildren<Canvas>();
-        //canvas.enabled = true;
     }
 }
