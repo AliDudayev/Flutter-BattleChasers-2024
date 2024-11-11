@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,7 +36,7 @@ public class CharacterController : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
-        attackCollider.SetPower((int)strength);
+        attackCollider.SetPower(strength);
     }
 
     void Update()
@@ -93,6 +94,8 @@ public class CharacterController : MonoBehaviour
         {
             isAttacking = true;
             attackCollider.SetIsAttacking(true);
+
+            attackCollider.SetSize(new Vector3(0.8390284f, 2.612277f, 0.2480217f));
         }
         else
         {
@@ -103,6 +106,12 @@ public class CharacterController : MonoBehaviour
                 animator.SetBool("Attacking", false);
             }
         }
+    }
+
+    private void SetStrengthAttack(float extraAttack)
+    {
+        int calculatedPower = Mathf.RoundToInt((float)(strength * extraAttack));
+        attackCollider.SetPower(calculatedPower);
     }
 
     private void PlayParticle(int particleToPlay)
@@ -130,6 +139,9 @@ public class CharacterController : MonoBehaviour
                 particleSystems[0].Play();
                 break;
             case 3:
+
+                attackCollider.SetSize(new Vector3(0.8390284f, 5f, 0.2480217f));
+
                 particleSystems[1].Play();
                 break;
             default:
