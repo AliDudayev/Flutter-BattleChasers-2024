@@ -41,7 +41,7 @@ public class AttackCollider : MonoBehaviour
             if (health != null && attackID != health.GetAttackID())
             {
                 health.SetAttackID(attackID);
-                health.ApplyDamage(power);
+                health.ApplyDamage(power, transform.position);
             }
         }
     }

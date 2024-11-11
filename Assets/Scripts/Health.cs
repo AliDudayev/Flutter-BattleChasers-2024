@@ -44,13 +44,13 @@ public class Health : MonoBehaviour
         attackID = newAttackId;
     }
 
-    public void ApplyDamage(float damage)
+    public void ApplyDamage(float damage, Vector3 hitDirection)
     {
         health -= damage;
 
         if (GetComponent<PushEffect>() != null)
         {
-            GetComponent<PushEffect>().ApplyPushback(transform.position);
+            GetComponent<PushEffect>().ApplyPushback(hitDirection);
         }
 
         slider.value = health;

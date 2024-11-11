@@ -11,6 +11,8 @@ public class PushEffect : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float pushForce = 5f;
     [SerializeField] private float colorChangeDuration = 1f;
+    [SerializeField] private float pushStopDuration = 0.5f;  // Time in seconds to reduce push effect
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,20 +29,44 @@ public class PushEffect : MonoBehaviour
 
     public void ApplyPushback(Vector3 hitDirection)
     {
-        Debug.Log("Push1");
-
         if (rb != null)
         {
-            Debug.Log("Push2");
+            // Calculate the push direction and set y to 0 to ensure horizontal-only force
             Vector3 pushDirection = (transform.position - hitDirection).normalized;
+            pushDirection.y = 0;
+
             rb.AddForce(pushDirection * pushForce, ForceMode.Impulse);
+
+            // Start velocity dampening to stop the pushback effect
+            StartCoroutine(StopPushbackGradually());
         }
 
         if (childRenderers.Count > 0)
         {
-            Debug.Log("Push3");
             StopAllCoroutines();
             StartCoroutine(ChangeColorTemporarily(Color.red, colorChangeDuration));
+        }
+    }
+
+    private IEnumerator StopPushbackGradually()
+    {
+        float elapsedTime = 0f;
+
+        // Gradually reduce the velocity over the specified duration
+        while (elapsedTime < pushStopDuration)
+        {
+            if (rb != null)
+            {
+                rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, elapsedTime / pushStopDuration);
+            }
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the velocity is completely stopped
+        if (rb != null)
+        {
+            rb.velocity = Vector3.zero;
         }
     }
 
