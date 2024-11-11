@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,7 +36,7 @@ public class CharacterController : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
-        attackCollider.SetPower((int)strength);
+        attackCollider.SetPower(strength);
     }
 
     void Update()
@@ -105,6 +106,12 @@ public class CharacterController : MonoBehaviour
                 animator.SetBool("Attacking", false);
             }
         }
+    }
+
+    private void SetStrengthAttack(float extraAttack)
+    {
+        int calculatedPower = Mathf.RoundToInt((float)(strength * extraAttack));
+        attackCollider.SetPower(calculatedPower);
     }
 
     private void PlayParticle(int particleToPlay)
