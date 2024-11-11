@@ -47,6 +47,12 @@ public class Health : MonoBehaviour
     public void ApplyDamage(float damage)
     {
         health -= damage;
+
+        if (GetComponent<PushEffect>() != null)
+        {
+            GetComponent<PushEffect>().ApplyPushback(transform.position);
+        }
+
         slider.value = health;
         if (health <= 0 && !isDead)
         {
