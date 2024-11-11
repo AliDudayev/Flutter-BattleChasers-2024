@@ -17,6 +17,9 @@ public class Health : MonoBehaviour
 
     private int attackID = 0;
 
+    [Header("Health decrease speed")]
+    [SerializeField] float lerpSpeed = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        slider.value = Mathf.MoveTowards(slider.value, health, lerpSpeed * Time.deltaTime);
     }
 
     public int GetAttackID()
@@ -46,14 +49,14 @@ public class Health : MonoBehaviour
 
     public void ApplyDamage(float damage, Vector3 hitDirection)
     {
-        health -= damage;
+        // Dit zorgt ervoor dat health niet onder 0 kan gaan en niet boven maxHealth kan gaan
+        health = Mathf.Clamp(health - damage, 0, maxHealth);
 
         if (GetComponent<PushEffect>() != null)
         {
             GetComponent<PushEffect>().ApplyPushback(hitDirection);
         }
 
-        slider.value = health;
         if (health <= 0 && !isDead)
         {
             StartCoroutine(Die()); 
