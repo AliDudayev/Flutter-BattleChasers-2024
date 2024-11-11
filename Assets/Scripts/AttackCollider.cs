@@ -8,10 +8,12 @@ public class AttackCollider : MonoBehaviour
     private int power = 50;
     private int attackID = 0;
 
+    private Collider attackCollider;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        attackCollider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -43,6 +45,14 @@ public class AttackCollider : MonoBehaviour
                 health.SetAttackID(attackID);
                 health.ApplyDamage(power, transform.position);
             }
+        }
+    }
+
+    public void SetSize(Vector3 newSize)
+    {
+        if (attackCollider is BoxCollider boxCollider)
+        {
+            boxCollider.size = newSize;
         }
     }
 }
