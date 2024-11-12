@@ -42,6 +42,7 @@ public class AttackCollider : MonoBehaviour
             Health health = other.GetComponent<Health>();
             if (health != null && attackID != health.GetAttackID())
             {
+                Debug.Log("Hit: " + attackID);
                 health.SetAttackID(attackID);
                 health.ApplyDamage(power, transform.position);
             }

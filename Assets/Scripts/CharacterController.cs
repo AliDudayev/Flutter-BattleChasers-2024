@@ -169,4 +169,13 @@ public class CharacterController : MonoBehaviour
             rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
         }
     }
+
+    //public void SetIsDead(bool setIsDead)
+    //{
+    //    isDead = setIsDead;
+    //    if(isDead == false)
+    //    {
+    //        isAttacking = false;
+    //    }
+    //}
 }
