@@ -75,6 +75,7 @@ public class Health : MonoBehaviour
         {
             gameObject.GetComponent<CharacterController>().enabled = false;
         }
+        gameObject.GetComponent<BoxCollider>().enabled = false;
 
         if (gameObject.GetComponent<Rigidbody>() != null)
         {

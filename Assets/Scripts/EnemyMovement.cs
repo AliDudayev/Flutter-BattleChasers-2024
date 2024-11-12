@@ -99,4 +99,9 @@ public class EnemyMovement : MonoBehaviour
         Debug.Log("Projectile Fired");
         // Instantiate a projectile and set its direction towards the player
     }
+
+    public void PlayerKilled()
+    {
+        playerTransform = null;
+    }
 }
