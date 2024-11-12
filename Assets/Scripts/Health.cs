@@ -65,9 +65,25 @@ public class Health : MonoBehaviour
 
     private IEnumerator Die()
     {
+        animator.SetBool("IsDead", true);
+
+        if (gameObject.GetComponent<EnemyMovement>() != null)
+        {
+            gameObject.GetComponent<EnemyMovement>().enabled = false;
+        }
+        else if (gameObject.GetComponent<CharacterController>() != null)
+        {
+            gameObject.GetComponent<CharacterController>().enabled = false;
+        }
+
+        if (gameObject.GetComponent<Rigidbody>() != null)
+        {
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        }
+
         isDead = true;
-        animator.SetTrigger("Death");  
-        yield return new WaitForSeconds(2f); 
+        yield return new WaitForSeconds(5f); 
         Destroy(gameObject);
         // Speel smoke particle effect
     }

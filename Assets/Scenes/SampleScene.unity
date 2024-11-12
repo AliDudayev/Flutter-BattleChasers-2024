@@ -1499,7 +1499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080de86164295074fb4c8ccba0eae761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 100
   lerpSpeed: 225
 --- !u!95 &55421512
 Animator:
