@@ -49,6 +49,10 @@ public class EnemyMovement : MonoBehaviour
         {
             MoveTowardsPlayer();
         }
+        else
+        {
+            animator.SetBool("Running", false);
+        }
     }
 
     private void MoveTowardsPlayer()
@@ -56,12 +60,13 @@ public class EnemyMovement : MonoBehaviour
         Vector3 direction = (playerTransform.position - transform.position).normalized;
         transform.position += direction * moveSpeed * Time.deltaTime;
         transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z));
-        animator.SetBool("IsMoving", true);
+        animator.SetBool("Running", true);
     }
 
     private void Attack()
     {
-        animator.SetTrigger("Attack");
+        animator.SetTrigger("Attacking");
+        animator.SetBool("Running", false);
         if (enemyType == EnemyType.Melee)
         {
             Debug.Log("Melee Attack");
@@ -71,6 +76,8 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("Ranged Attack");
             ShootProjectile();
         }
+
+        isAttacking = false;
     }
 
     private void ShootProjectile()
