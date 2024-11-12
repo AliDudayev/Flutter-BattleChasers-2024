@@ -12,15 +12,16 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float attackRange = 2f;
     //[SerializeField] private float rangedAttackRange = 10f; // Ranged attack distance
 
-    [Header("Attack Settings")]
+    [Header("Attack")]
     [SerializeField] private float attackCooldown = 1.5f; // Time between attacks
     private float attackTimer;
+    [SerializeField] AttackCollider attackCollider;
 
     [Header("References")]
     private Transform playerTransform;
     private Animator animator;
 
-    private bool isAttacking = false;
+
 
     void Start()
     {
@@ -31,6 +32,8 @@ public class EnemyMovement : MonoBehaviour
         {
             playerTransform = GameObject.FindAnyObjectByType<CharacterController>().transform;
         }
+
+        attackCollider.SetPower(50);
     }
 
     void Update()
@@ -76,8 +79,18 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("Ranged Attack");
             ShootProjectile();
         }
+    }
 
-        isAttacking = false;
+    private void SetAbleToHit(int ableToHit)
+    {
+        if(0 == ableToHit)
+        {
+            attackCollider.SetIsAttacking(false);
+        }
+        else
+        {
+            attackCollider.SetIsAttacking(true);
+        }
     }
 
     private void ShootProjectile()
