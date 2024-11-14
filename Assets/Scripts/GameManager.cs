@@ -105,8 +105,16 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject enemy in activeEnemies)
         {
+            // stop the enemy from rotating its rigidbody
+
             if (enemy != null)
             {
+                Rigidbody rb = enemy.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.freezeRotation = true;
+                }
+
                 // Zoek de Animator van de vijand en speel de 'Win' animatie
                 Animator animator = enemy.GetComponent<Animator>();
                 if (animator != null)
