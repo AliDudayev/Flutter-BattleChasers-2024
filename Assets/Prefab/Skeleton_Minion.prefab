@@ -1003,6 +1003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  score: 1
   lerpSpeed: 225
 --- !u!114 &7481913417851267906
 MonoBehaviour:
