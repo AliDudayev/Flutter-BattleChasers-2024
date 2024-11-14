@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
         public GameObject enemyPrefab;      // Prefab voor dit type vijand
         public Transform spawnPoint;        // Spawnpunt voor dit type vijand
         public int baseSpawnCount = 3;      // Basis aantal vijanden dat spawnt in ronde 1
+        public ParticleSystem particle;
     }
 
     // Lijst van alle vijandtypen
@@ -70,12 +71,16 @@ public class GameManager : MonoBehaviour
             // Spawn een vijand en voeg deze toe aan de lijst van actieve vijanden
             GameObject enemy = Instantiate(enemyType.enemyPrefab, enemyType.spawnPoint.position, Quaternion.identity);
             activeEnemies.Add(enemy);
+            enemyType.particle.Play();
 
             // Registreer callback om vijand uit de lijst te verwijderen wanneer deze sterft
             enemy.GetComponent<Health>().OnDeath += () => RemoveEnemyFromList(enemy);
 
+            yield return new WaitForSeconds(0.3f);
+            enemyType.particle.Stop();
+
             // Wacht voordat de volgende vijand gespawned wordt
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(spawnInterval - 0.3f);
         }
     }
 
