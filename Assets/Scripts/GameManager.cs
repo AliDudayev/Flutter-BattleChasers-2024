@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
                 if (animator != null)
                 {
                     animator.SetTrigger("Win");
+                    enemy.GetComponent<EnemyMovement>().enabled = false;
                 }
             }
         }

@@ -79,6 +79,7 @@ public class Health : MonoBehaviour
         else if (gameObject.GetComponent<CharacterController>() != null)
         {
             gameObject.GetComponent<CharacterController>().enabled = false;
+            FindAnyObjectByType<GameManager>().TriggerEnemiesWinAnimation();
         }
         gameObject.GetComponent<BoxCollider>().enabled = false;
 
