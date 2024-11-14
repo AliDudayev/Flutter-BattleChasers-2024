@@ -2427,13 +2427,13 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: stegosaurus
+  mTrackableName: Knight
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/UnityTest.xml
-  mAspectRatio: 0.6097112
+  mAspectRatio: 1.4994234
   mImageTargetType: 0
   mWidth: 5
-  mHeight: 3.048556
+  mHeight: 7.497117
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -2513,7 +2513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 600888882}
   mHiddenRoot: {fileID: 0}
-  mTargetName: stegosaurus
+  mTargetName: Knight
   mDatasetName: Vuforia/UnityTest.xml
   mCastedBehaviour: {fileID: 600888882}
   mMeshFilter: {fileID: 0}
