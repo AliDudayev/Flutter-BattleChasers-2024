@@ -44692,18 +44692,18 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: SetAttack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 1
-    messageOptions: 0
-  - time: 0
     functionName: SetStrengthAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 1.3
     intParameter: 0
+    messageOptions: 0
+  - time: 0.16666667
+    functionName: SetAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
     messageOptions: 0
   - time: 0.16666667
     functionName: PlayParticle
@@ -44712,7 +44712,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 1.0666667
+  - time: 0.56666666
     functionName: SetAttack
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -47464,13 +47464,6 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: SetAttack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 1
-    messageOptions: 0
-  - time: 0
     functionName: PlayParticle
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -47484,7 +47477,14 @@ AnimationClip:
     floatParameter: 1.5
     intParameter: 0
     messageOptions: 0
-  - time: 0.93333334
+  - time: 0.33333334
+    functionName: SetAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
+  - time: 1.0333333
     functionName: SetAttack
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     [SerializeField] float maxHealth = 1000f;
     private float health;
     private Slider slider;
+    [SerializeField] float score = 1;
 
     [Header("Animations")]
     private Animator animator;
@@ -19,6 +20,9 @@ public class Health : MonoBehaviour
 
     [Header("Health decrease speed")]
     [SerializeField] float lerpSpeed = 5f;
+
+    public delegate void DeathDelegate();
+    public event DeathDelegate OnDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -70,10 +74,16 @@ public class Health : MonoBehaviour
         if (gameObject.GetComponent<EnemyMovement>() != null)
         {
             gameObject.GetComponent<EnemyMovement>().enabled = false;
+            // Find a object with name Score
+            GameObject scoreObject = GameObject.Find("Score");
+            scoreObject.GetComponent<Text>().text = (int.Parse(scoreObject.GetComponent<Text>().text) + score).ToString();
+
+            OnDeath?.Invoke();
         }
         else if (gameObject.GetComponent<CharacterController>() != null)
         {
             gameObject.GetComponent<CharacterController>().enabled = false;
+            FindAnyObjectByType<GameManager>().TriggerEnemiesWinAnimation();
         }
         gameObject.GetComponent<BoxCollider>().enabled = false;
 
