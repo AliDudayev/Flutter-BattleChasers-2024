@@ -20,6 +20,9 @@ public class Health : MonoBehaviour
     [Header("Health decrease speed")]
     [SerializeField] float lerpSpeed = 5f;
 
+    public delegate void DeathDelegate();
+    public event DeathDelegate OnDeath;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +73,8 @@ public class Health : MonoBehaviour
         if (gameObject.GetComponent<EnemyMovement>() != null)
         {
             gameObject.GetComponent<EnemyMovement>().enabled = false;
+
+            OnDeath?.Invoke();
         }
         else if (gameObject.GetComponent<CharacterController>() != null)
         {
