@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     private bool isRoundInProgress = false;
     private bool gameStarted = false;
 
+    private int spawnersFound = 0;
+
     private void Start()
     {
         observerBehaviours = FindObjectsOfType<ObserverBehaviour>();
@@ -57,6 +59,8 @@ public class GameManager : MonoBehaviour
                     child.gameObject.SetActive(true);
                     spawnPoints.Add(child);
 
+                    spawnersFound++;
+
                     // Update the reference in the EnemyType
                     foreach (var enemyType in enemyTypes)
                     {
@@ -69,19 +73,26 @@ public class GameManager : MonoBehaviour
             }
 
             CheckAllTargetsFound();
+
         }
         else
         {
             targetStatuses[observer] = false;
         }
+
+        //CheckAllTargetsFound();
+        
     }
 
     private void CheckAllTargetsFound()
     {
-        foreach (var status in targetStatuses.Values)
-        {
-            if (!status) return; // Not all targets are found
-        }
+        Debug.Log("Checking targets........................................");
+        //foreach (var status in targetStatuses.Values)
+        //{
+        //    if (!status) return; // Not all targets are found
+        //}
+        if (spawnersFound < enemyTypes.Count) return;
+
 
         if (!gameStarted)
         {
