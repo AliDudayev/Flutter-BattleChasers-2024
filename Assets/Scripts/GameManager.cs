@@ -46,8 +46,11 @@ public class GameManager : MonoBehaviour
         // Registreer de statusverandering callbacks
         foreach (var observer in observerBehaviours)
         {
-            targetStatuses[observer] = false;
-            observer.OnTargetStatusChanged += OnTargetStatusChanged;
+            if (observer.tag.Equals("Spawner"))
+            {
+                targetStatuses[observer] = false;
+                observer.OnTargetStatusChanged += OnTargetStatusChanged;
+            }
         }
     }
 
