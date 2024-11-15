@@ -2,14 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Vuforia;
 
 public class GameManager : MonoBehaviour
 {
-    //public GameObject[] monsters;  // Array of game objects to check
-    //monsters  = FindObjectsOfType<MonsterProperties>().Select(g => g.gameObject).ToArray();
-
-    // Find me all object that has the script MonsterProperties
-
     [System.Serializable]
     public class EnemyType
     {
@@ -22,6 +18,13 @@ public class GameManager : MonoBehaviour
     // Lijst van alle vijandtypen
     public List<EnemyType> enemyTypes;
 
+    // Lijst van spawnpoints (gekopieerd van targets)
+    public List<Transform> spawnPoints = new List<Transform>();
+
+    // Vuforia observer-behaviours
+    private ObserverBehaviour[] observerBehaviours;
+    private Dictionary<ObserverBehaviour, bool> targetStatuses = new Dictionary<ObserverBehaviour, bool>();
+
     // Huidige ronde
     public int currentRound = 1;
 
@@ -33,18 +36,70 @@ public class GameManager : MonoBehaviour
 
     // Controleert of er een ronde bezig is
     private bool isRoundInProgress = false;
-
-    public int spawnCounter;
+    private bool gameStarted = false;
 
     private void Start()
     {
-        // Start de eerste ronde
-        StartCoroutine(StartNewRound());
+        // Zoek alle observer-behaviours (targets) in de scène
+        observerBehaviours = FindObjectsOfType<ObserverBehaviour>();
+
+        // Registreer de statusverandering callbacks
+        foreach (var observer in observerBehaviours)
+        {
+            targetStatuses[observer] = false;
+            observer.OnTargetStatusChanged += OnTargetStatusChanged;
+        }
+    }
+
+    private void OnTargetStatusChanged(ObserverBehaviour observer, TargetStatus status)
+    {
+        // Controleer of het target gedetecteerd en gevolgd wordt
+        if (status.Status == Status.TRACKED || status.Status == Status.EXTENDED_TRACKED)
+        {
+            // Update de status van dit target
+            targetStatuses[observer] = true;
+
+            // Kopieer spawnpoints van het target als deze nog niet toegevoegd zijn
+            if (!spawnPoints.Contains(observer.transform))
+            {
+                foreach (Transform child in observer.transform)
+                {
+                    if (child.CompareTag("SpawnPoint"))
+                    {
+                        Transform newSpawnPoint = Instantiate(child, transform); // Kopieer spawnpoints naar een persistente plek
+                        spawnPoints.Add(newSpawnPoint);
+                    }
+                }
+            }
+
+            // Controleer of alle targets gevonden zijn
+            CheckAllTargetsFound();
+        }
+        else
+        {
+            // Markeer het target als niet meer gevolgd
+            targetStatuses[observer] = false;
+        }
+    }
+
+    private void CheckAllTargetsFound()
+    {
+        // Controleer of alle targets gevonden zijn
+        foreach (var status in targetStatuses.Values)
+        {
+            if (!status) return; // Nog niet alle targets zijn gevonden
+        }
+
+        if (!gameStarted)
+        {
+            gameStarted = true;
+            Debug.Log("Alle targets gevonden! Start de eerste ronde.");
+            StartCoroutine(StartNewRound());
+        }
     }
 
     private IEnumerator StartNewRound()
     {
-        // Korte vertraging voordat de ronde begint
         yield return new WaitForSeconds(2f);
 
         isRoundInProgress = true;
@@ -54,10 +109,14 @@ public class GameManager : MonoBehaviour
 
         foreach (var enemyType in enemyTypes)
         {
+            // Controleer of spawnpoints beschikbaar zijn
+            if (spawnPoints.Count == 0) yield break;
+
+            // Wijs een willekeurig spawnpoint toe
+            enemyType.spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
+
             // Bereken het aantal vijanden om te spawnen voor deze ronde
             int spawnCount = enemyType.baseSpawnCount * roundMultiplier;
-
-            spawnCounter = spawnCount;
 
             // Start vijand spawn voor het vijandtype
             StartCoroutine(SpawnEnemies(enemyType, spawnCount));
@@ -105,8 +164,6 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject enemy in activeEnemies)
         {
-            // stop the enemy from rotating its rigidbody
-
             if (enemy != null)
             {
                 Rigidbody rb = enemy.GetComponent<Rigidbody>();
@@ -115,7 +172,6 @@ public class GameManager : MonoBehaviour
                     rb.freezeRotation = true;
                 }
 
-                // Zoek de Animator van de vijand en speel de 'Win' animatie
                 Animator animator = enemy.GetComponent<Animator>();
                 if (animator != null)
                 {
