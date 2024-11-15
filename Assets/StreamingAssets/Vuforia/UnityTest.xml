@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
-    <ImageTarget name="Knight" size="5.000000 7.497117" />
-    <ImageTarget name="tyrannosaurus" size="5.000000 3.078642" />
-    <ImageTarget name="triceratops" size="5.000000 2.988997" />
-    <ImageTarget name="stegosaurus" size="5.000000 3.048556" />
+    <ImageTarget name="warrior" size="5.000000 5.000000" />
+    <ImageTarget name="minion" size="5.000000 5.000000" />
+    <ImageTarget name="mage" size="5.000000 5.000000" />
+    <ImageTarget name="rogue" size="5.000000 4.465625" />
+    <ImageTarget name="Knight" size="5.000000 5.000000" />
   </Tracking>
 </QCARConfig>

@@ -16,7 +16,7 @@ public class PlayerFinder : MonoBehaviour
         // Register a callback for each observer to listen to status changes
         foreach (var observer in observerBehaviours)
         {
-            if(observer.name != "VideoBackground")
+            if(observer.name != "VideoBackground" && observer.tag.Equals("Player"))
             {
                 observer.OnTargetStatusChanged += OnTargetStatusChanged;
             }
