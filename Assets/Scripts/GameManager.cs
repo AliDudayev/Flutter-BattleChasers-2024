@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private bool gameStarted = false;
 
     private int spawnersFound = 0;
+    private bool playerIsFound = false;
 
     private void Start()
     {
@@ -84,14 +85,15 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void PlayerIsFound()
+    {
+        playerIsFound = true;
+        CheckAllTargetsFound();
+    }
+
     private void CheckAllTargetsFound()
     {
-        Debug.Log("Checking targets........................................");
-        //foreach (var status in targetStatuses.Values)
-        //{
-        //    if (!status) return; // Not all targets are found
-        //}
-        if (spawnersFound < enemyTypes.Count) return;
+        if (spawnersFound < enemyTypes.Count || playerIsFound == false) return;
 
 
         if (!gameStarted)
