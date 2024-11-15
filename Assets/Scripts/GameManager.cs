@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Vuforia;
 
@@ -15,35 +14,21 @@ public class GameManager : MonoBehaviour
         public ParticleSystem particle;
     }
 
-    // Lijst van alle vijandtypen
-    public List<EnemyType> enemyTypes;
-
-    // Lijst van spawnpoints (gekopieerd van targets)
-    public List<Transform> spawnPoints = new List<Transform>();
-
-    // Vuforia observer-behaviours
-    private ObserverBehaviour[] observerBehaviours;
+    public List<EnemyType> enemyTypes; // Lijst van alle vijandtypen
+    public List<Transform> spawnPoints = new List<Transform>(); // Lijst van spawnpoints (gekopieerd van targets)
+    private ObserverBehaviour[] observerBehaviours; // Vuforia observer-behaviours
     private Dictionary<ObserverBehaviour, bool> targetStatuses = new Dictionary<ObserverBehaviour, bool>();
 
-    // Huidige ronde
-    public int currentRound = 1;
-
-    // Interval tussen individuele spawns
-    public float spawnInterval = 1f;
-
-    // Lijst van actieve vijanden in de huidige ronde
-    public List<GameObject> activeEnemies = new List<GameObject>();
-
-    // Controleert of er een ronde bezig is
+    public int currentRound = 1; // Huidige ronde
+    public float spawnInterval = 1f; // Interval tussen individuele spawns
+    public List<GameObject> activeEnemies = new List<GameObject>(); // Lijst van actieve vijanden in de huidige ronde
     private bool isRoundInProgress = false;
     private bool gameStarted = false;
 
     private void Start()
     {
-        // Zoek alle observer-behaviours (targets) in de scène
         observerBehaviours = FindObjectsOfType<ObserverBehaviour>();
 
-        // Registreer de statusverandering callbacks
         foreach (var observer in observerBehaviours)
         {
             if (observer.tag.Equals("Spawner"))
@@ -56,47 +41,52 @@ public class GameManager : MonoBehaviour
 
     private void OnTargetStatusChanged(ObserverBehaviour observer, TargetStatus status)
     {
-        // Controleer of het target gedetecteerd en gevolgd wordt
         if (status.Status == Status.TRACKED || status.Status == Status.EXTENDED_TRACKED)
         {
-            // Update de status van dit target
             targetStatuses[observer] = true;
 
-            // Kopieer spawnpoints van het target als deze nog niet toegevoegd zijn
-            if (!spawnPoints.Contains(observer.transform))
+            // Move the child spawners to the GameManager after a delay
+            foreach (Transform child in observer.transform)
             {
-                foreach (Transform child in observer.transform)
+                if (!spawnPoints.Contains(child))
                 {
-                    if (child.CompareTag("SpawnPoint"))
+                    // Start the coroutine to set the position after a delay
+                    StartCoroutine(SetPositionAfterDelay(child, observer, 1f));
+
+                    // Set spawn point active and add to the list
+                    child.gameObject.SetActive(true);
+                    spawnPoints.Add(child);
+
+                    // Update the reference in the EnemyType
+                    foreach (var enemyType in enemyTypes)
                     {
-                        Transform newSpawnPoint = Instantiate(child, transform); // Kopieer spawnpoints naar een persistente plek
-                        spawnPoints.Add(newSpawnPoint);
+                        if (enemyType.spawnPoint == observer.transform)
+                        {
+                            enemyType.spawnPoint = child;
+                        }
                     }
                 }
             }
 
-            // Controleer of alle targets gevonden zijn
             CheckAllTargetsFound();
         }
         else
         {
-            // Markeer het target als niet meer gevolgd
             targetStatuses[observer] = false;
         }
     }
 
     private void CheckAllTargetsFound()
     {
-        // Controleer of alle targets gevonden zijn
         foreach (var status in targetStatuses.Values)
         {
-            if (!status) return; // Nog niet alle targets zijn gevonden
+            if (!status) return; // Not all targets are found
         }
 
         if (!gameStarted)
         {
             gameStarted = true;
-            Debug.Log("Alle targets gevonden! Start de eerste ronde.");
+            Debug.Log("All targets found! Starting first round.");
             StartCoroutine(StartNewRound());
         }
     }
@@ -107,21 +97,17 @@ public class GameManager : MonoBehaviour
 
         isRoundInProgress = true;
 
-        // Verhoog het aantal vijanden met de ronde
         int roundMultiplier = currentRound;
 
         foreach (var enemyType in enemyTypes)
         {
-            // Controleer of spawnpoints beschikbaar zijn
             if (spawnPoints.Count == 0) yield break;
 
-            // Wijs een willekeurig spawnpoint toe
+            // Pick a random spawn point
             enemyType.spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
 
-            // Bereken het aantal vijanden om te spawnen voor deze ronde
             int spawnCount = enemyType.baseSpawnCount * roundMultiplier;
 
-            // Start vijand spawn voor het vijandtype
             StartCoroutine(SpawnEnemies(enemyType, spawnCount));
         }
     }
@@ -130,39 +116,45 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            // Spawn een vijand en voeg deze toe aan de lijst van actieve vijanden
             GameObject enemy = Instantiate(enemyType.enemyPrefab, enemyType.spawnPoint.position, Quaternion.identity);
             activeEnemies.Add(enemy);
             enemyType.particle.Play();
 
-            // Registreer callback om vijand uit de lijst te verwijderen wanneer deze sterft
             enemy.GetComponent<Health>().OnDeath += () => RemoveEnemyFromList(enemy);
 
             yield return new WaitForSeconds(0.3f);
             enemyType.particle.Stop();
 
-            // Wacht voordat de volgende vijand gespawned wordt
             yield return new WaitForSeconds(spawnInterval - 0.3f);
         }
     }
 
     private void RemoveEnemyFromList(GameObject enemy)
     {
-        // Verwijder vijand uit de lijst van actieve vijanden
         activeEnemies.Remove(enemy);
 
-        // Controleer of alle vijanden verslagen zijn om de volgende ronde te starten
         if (activeEnemies.Count == 0 && isRoundInProgress)
         {
             isRoundInProgress = false;
             currentRound++;
-
-            // Start de volgende ronde
             StartCoroutine(StartNewRound());
         }
     }
 
-    // Roept deze functie aan wanneer de speler verliest
+    // Coroutine to set position after delay
+    private IEnumerator SetPositionAfterDelay(Transform spawnPoint, ObserverBehaviour observer, float delay)
+    {
+        // Wait for the specified delay
+        yield return new WaitForSeconds(delay);
+
+        // Move the spawn point to the world position of the parent observer (target) after the delay
+        spawnPoint.position = observer.transform.position;
+        spawnPoint.SetParent(transform); // Move to GameManager
+
+        // Optionally set spawn point's rotation if necessary (this depends on your use case)
+        spawnPoint.rotation = observer.transform.rotation;
+    }
+
     public void TriggerEnemiesWinAnimation()
     {
         foreach (GameObject enemy in activeEnemies)
