@@ -74,7 +74,15 @@ public class PlayerFinder : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        transform.position = behaviour.transform.position;
-        transform.rotation = behaviour.transform.rotation;
+        //transform.position = behaviour.transform.position;
+        //transform.rotation = behaviour.transform.rotation;
+
+        // Set the position of the instantiated character to match the behaviour's position
+        instantiatedCharacter.transform.position = behaviour.transform.position;
+
+        // Set the rotation, keeping the y rotation from the behaviour and setting x and z to 0
+        Vector3 rotation = behaviour.transform.rotation.eulerAngles;
+        instantiatedCharacter.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f); // Set x and z to 0, keep y
+
     }
 }
