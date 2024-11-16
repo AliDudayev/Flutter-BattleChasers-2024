@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Vuforia;
@@ -102,7 +103,8 @@ public class GameManager : MonoBehaviour
             {
                 Vector3 spawnPos = spawnPoint.position;
                 spawnPos.y = player.transform.position.y; 
-                spawnPoint.position = spawnPos; 
+                spawnPoint.position = spawnPos;
+                UnityEngine.Debug.Log("Spawnpoint set to player height...............................................");
             }
         }
 
@@ -110,7 +112,7 @@ public class GameManager : MonoBehaviour
         {
 
             gameStarted = true;
-            Debug.Log("All targets found! Starting first round.");
+            UnityEngine.Debug.Log("All targets found! Starting first round.");
             StartCoroutine(StartNewRound());
         }
     }
