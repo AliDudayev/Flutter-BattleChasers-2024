@@ -42,7 +42,7 @@ public class PlayerFinder : MonoBehaviour
                 StartCoroutine(SetCharacterPositionAfterDelay(instantiatedCharacter, behaviour, 1f));
 
                 GameManager gameManager = FindObjectOfType<GameManager>();
-                gameManager.PlayerIsFound();
+                gameManager.PlayerIsFound(instantiatedCharacter);
             }
         }
     }

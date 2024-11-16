@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Vuforia;
 
 public class GameManager : MonoBehaviour
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
     private bool gameStarted = false;
 
     private int spawnersFound = 0;
-    private bool playerIsFound = false;
+    private GameObject player;
 
     private void Start()
     {
@@ -85,19 +86,29 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void PlayerIsFound()
+    public void PlayerIsFound(GameObject newPlayer)
     {
-        playerIsFound = true;
+        player = newPlayer;
         CheckAllTargetsFound();
     }
 
     private void CheckAllTargetsFound()
     {
-        if (spawnersFound < enemyTypes.Count || playerIsFound == false) return;
+        if (spawnersFound < enemyTypes.Count || player == null) return;
 
+        foreach (Transform spawnPoint in spawnPoints)
+        {
+            if (spawnPoint != null)
+            {
+                Vector3 spawnPos = spawnPoint.position;
+                spawnPos.y = player.transform.position.y; 
+                spawnPoint.position = spawnPos; 
+            }
+        }
 
         if (!gameStarted)
         {
+
             gameStarted = true;
             Debug.Log("All targets found! Starting first round.");
             StartCoroutine(StartNewRound());
@@ -164,8 +175,9 @@ public class GameManager : MonoBehaviour
         spawnPoint.position = observer.transform.position;
         spawnPoint.SetParent(transform); // Move to GameManager
 
-        // Optionally set spawn point's rotation if necessary (this depends on your use case)
-        spawnPoint.rotation = observer.transform.rotation;
+        // Set the rotation, keeping the y rotation from the behaviour and setting x and z to 0
+        Vector3 rotation = observer.transform.rotation.eulerAngles;
+        spawnPoint.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f); // Set x and z to 0, keep y
     }
 
     public void TriggerEnemiesWinAnimation()
