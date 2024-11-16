@@ -57,6 +57,11 @@ public class EnemyMovement : MonoBehaviour
             Attack();
             attackTimer = attackCooldown;
         }
+
+        if (distanceToPlayer <= attackRange - 2) // If too close
+        {
+            MoveAwayFromPlayer();
+        }
         else if (distanceToPlayer > attackRange)
         {
             MoveTowardsPlayer();
@@ -71,8 +76,14 @@ public class EnemyMovement : MonoBehaviour
     {
         Vector3 direction = (playerTransform.position - transform.position).normalized;
         transform.position += direction * moveSpeed * Time.deltaTime;
-        transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z));
+        //transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z));
         animator.SetBool("Running", true);
+    }
+    private void MoveAwayFromPlayer()
+    {
+        Vector3 direction = (transform.position - playerTransform.position).normalized; // Move away from player
+        transform.position += direction * (moveSpeed / 2) * Time.deltaTime; // Half the move speed
+        animator.SetBool("Running", true); // Play running animation
     }
 
     private void LookAtPlayer()
