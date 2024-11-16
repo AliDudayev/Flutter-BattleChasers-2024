@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform playerTransform;
     private Animator animator;
 
-
+    public float heightProjectile;
 
     void Start()
     {
@@ -85,7 +85,7 @@ public class EnemyMovement : MonoBehaviour
         //    Debug.Log("Ranged Attack");
         //    ShootProjectile();
         //}
-        ShootProjectile();
+        //ShootProjectile();
     }
 
     private void SetAbleToHit(int ableToHit)
@@ -105,7 +105,7 @@ public class EnemyMovement : MonoBehaviour
         if (projectilePrefab == null || playerTransform == null) return;
 
         // Set the spawn position slightly above the enemy
-        Vector3 spawnPosition = transform.position + new Vector3(0, 2, 0); // Adjust Y-offset (1.5f) as needed
+        Vector3 spawnPosition = transform.position + new Vector3(0, heightProjectile, 0); // Adjust Y-offset (1.5f) as needed
 
         // Instantiate the projectile
         GameObject projectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
