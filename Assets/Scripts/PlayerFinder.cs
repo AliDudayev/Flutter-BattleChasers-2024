@@ -5,8 +5,8 @@ using Vuforia;
 
 public class PlayerFinder : MonoBehaviour
 {
-    public GameObject Character; 
-    public ObserverBehaviour[] observerBehaviours;
+    public GameObject Character;
+    private ObserverBehaviour[] observerBehaviours;
 
     void Start()
     {

@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartNewRound()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
 
         isRoundInProgress = true;
 
@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
             if (spawnPoints.Count == 0) yield break;
 
             // Pick a random spawn point
-            enemyType.spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
+            //enemyType.spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
 
             int spawnCount = enemyType.baseSpawnCount * roundMultiplier;
 

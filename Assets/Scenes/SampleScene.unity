@@ -3304,7 +3304,7 @@ MonoBehaviour:
     particle: {fileID: 1140084}
   spawnPoints: []
   currentRound: 1
-  spawnInterval: 1
+  spawnInterval: 2
   activeEnemies: []
 --- !u!1001 &1157092110
 PrefabInstance:
@@ -4092,7 +4092,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 0}
-  observerBehaviours: []
 --- !u!4 &1695307211
 Transform:
   m_ObjectHideFlags: 0
