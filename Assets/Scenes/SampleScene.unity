@@ -2146,8 +2146,8 @@ MonoBehaviour:
   attackCooldown: 2
   attackCollider: {fileID: 0}
   projectilePrefab: {fileID: 4219235610759538797, guid: 3ac344a43edb6ee4594f9b23eb875b2d, type: 3}
+  projectileSpawnLocation: {fileID: 1495347244}
   projectileSpeed: 10
-  heightProjectile: 0
 --- !u!114 &324009799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4939,6 +4939,37 @@ MonoBehaviour:
   pushForce: 0
   colorChangeDuration: 1
   pushStopDuration: 0.5
+--- !u!1 &1495347244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1495347245}
+  m_Layer: 0
+  m_Name: ProjectileSpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1495347245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495347244}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00259, y: -0.00003, z: 0.01132}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1874065193}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1496535796 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7655872403321392018, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
@@ -5410,7 +5441,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: da977fcc9c8a95d4f9d817a92c64b01b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1495347245}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da977fcc9c8a95d4f9d817a92c64b01b, type: 3}
 --- !u!4 &1874065193 stripped

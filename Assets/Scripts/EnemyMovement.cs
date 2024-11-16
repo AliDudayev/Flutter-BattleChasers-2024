@@ -19,13 +19,14 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] AttackCollider attackCollider;
     [Header("Attack for ranged enemy")]
     [SerializeField] GameObject projectilePrefab;
+    [SerializeField] GameObject projectileSpawnLocation;
     [SerializeField] private float projectileSpeed = 10f;
 
     [Header("References")]
     private Transform playerTransform;
     private Animator animator;
 
-    public float heightProjectile;
+    //public float heightProjectile;
 
     void Start()
     {
@@ -105,10 +106,10 @@ public class EnemyMovement : MonoBehaviour
         if (projectilePrefab == null || playerTransform == null) return;
 
         // Set the spawn position slightly above the enemy
-        Vector3 spawnPosition = transform.position + new Vector3(0, heightProjectile, 0); // Adjust Y-offset (1.5f) as needed
+        //Vector3 spawnPosition = projectileWeapon.transform.position + new Vector3(0, heightProjectile, 0); // Adjust Y-offset (1.5f) as needed
 
         // Instantiate the projectile
-        GameObject projectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnLocation.transform.position, Quaternion.identity);
 
         // Calculate direction toward the player
         Vector3 direction = (playerTransform.position - transform.position).normalized;
