@@ -761,6 +761,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1396427355593038087, guid: 1fecfbd8fc4a45f41aa10dfad04ecff6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0.0000068370177
@@ -4900,7 +4904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080de86164295074fb4c8ccba0eae761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 200
   score: 1
   lerpSpeed: 250
 --- !u!65 &1488986659
