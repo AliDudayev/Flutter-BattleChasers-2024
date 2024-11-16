@@ -47,6 +47,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (playerTransform == null) return;
 
+        LookAtPlayer(); // Ensure the enemy always faces the player
+
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         attackTimer -= Time.deltaTime;
 
@@ -71,6 +73,17 @@ public class EnemyMovement : MonoBehaviour
         transform.position += direction * moveSpeed * Time.deltaTime;
         transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z));
         animator.SetBool("Running", true);
+    }
+
+    private void LookAtPlayer()
+    {
+        // Ensure the enemy is always facing the player
+        Vector3 lookDirection = (playerTransform.position - transform.position).normalized;
+        lookDirection.y = 0; // Lock Y-axis rotation to keep the enemy upright
+        if (lookDirection != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(lookDirection);
+        }
     }
 
     private void Attack()
@@ -112,7 +125,7 @@ public class EnemyMovement : MonoBehaviour
         GameObject projectile = Instantiate(projectilePrefab, projectileSpawnLocation.transform.position, Quaternion.identity);
 
         // Calculate direction toward the player
-        Vector3 direction = (playerTransform.position - transform.position).normalized;
+        Vector3 direction = (playerTransform.position - projectileSpawnLocation.transform.position).normalized;
 
         // Set the projectile's velocity
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
