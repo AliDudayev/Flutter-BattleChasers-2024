@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public enum EnemyType { Melee, Ranged }
-    public EnemyType enemyType;
+    //public enum EnemyType { Melee, Ranged }
+    //public EnemyType enemyType;
 
     [Header("Settings")]
     [SerializeField] private float moveSpeed = 3f;
@@ -15,7 +15,11 @@ public class EnemyMovement : MonoBehaviour
     [Header("Attack")]
     [SerializeField] private float attackCooldown = 1.5f; // Time between attacks
     private float attackTimer;
+    [Header("Attack for melee enemy")]
     [SerializeField] AttackCollider attackCollider;
+    [Header("Attack for ranged enemy")]
+    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] private float projectileSpeed = 10f;
 
     [Header("References")]
     private Transform playerTransform;
@@ -33,10 +37,12 @@ public class EnemyMovement : MonoBehaviour
             playerTransform = GameObject.FindAnyObjectByType<CharacterController>().transform;
         }
 
-        attackCollider.SetPower(50);
+        if(attackCollider != null) {
+            attackCollider.SetPower(50);
+        }
     }
 
-    void Update()
+        void Update()
     {
         if (playerTransform == null) return;
 
@@ -70,15 +76,16 @@ public class EnemyMovement : MonoBehaviour
     {
         animator.SetTrigger("Attacking");
         animator.SetBool("Running", false);
-        if (enemyType == EnemyType.Melee)
-        {
-            Debug.Log("Melee Attack");
-        }
-        else if (enemyType == EnemyType.Ranged)
-        {
-            Debug.Log("Ranged Attack");
-            ShootProjectile();
-        }
+        //if (enemyType == EnemyType.Melee)
+        //{
+        //    Debug.Log("Melee Attack");
+        //}
+        //else if (enemyType == EnemyType.Ranged)
+        //{
+        //    Debug.Log("Ranged Attack");
+        //    ShootProjectile();
+        //}
+        ShootProjectile();
     }
 
     private void SetAbleToHit(int ableToHit)
@@ -95,9 +102,25 @@ public class EnemyMovement : MonoBehaviour
 
     private void ShootProjectile()
     {
-        // Placeholder for projectile shooting logic
+        if (projectilePrefab == null || playerTransform == null) return;
+
+        // Set the spawn position slightly above the enemy
+        Vector3 spawnPosition = transform.position + new Vector3(0, 2, 0); // Adjust Y-offset (1.5f) as needed
+
+        // Instantiate the projectile
+        GameObject projectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
+
+        // Calculate direction toward the player
+        Vector3 direction = (playerTransform.position - transform.position).normalized;
+
+        // Set the projectile's velocity
+        Rigidbody rb = projectile.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.velocity = direction * projectileSpeed;
+        }
+
         Debug.Log("Projectile Fired");
-        // Instantiate a projectile and set its direction towards the player
     }
 
     public void PlayerKilled()
