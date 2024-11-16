@@ -1505,7 +1505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &370785333
 Transform:
   m_ObjectHideFlags: 0
@@ -3295,16 +3295,16 @@ MonoBehaviour:
     baseSpawnCount: 1
     particle: {fileID: 1140084}
   - enemyPrefab: {fileID: 6326543443829651809, guid: 3b8c73c132ca8b44bb5ee46c563b0776, type: 3}
-    spawnPoint: {fileID: 1229755748}
+    spawnPoint: {fileID: 2139087774}
     baseSpawnCount: 1
     particle: {fileID: 1140084}
   - enemyPrefab: {fileID: 6326543443829651809, guid: 3b8c73c132ca8b44bb5ee46c563b0776, type: 3}
-    spawnPoint: {fileID: 370785333}
+    spawnPoint: {fileID: 1229755748}
     baseSpawnCount: 1
     particle: {fileID: 1140084}
   spawnPoints: []
   currentRound: 1
-  spawnInterval: 1
+  spawnInterval: 2
   activeEnemies: []
 --- !u!1001 &1157092110
 PrefabInstance:
@@ -3440,7 +3440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1229755748
 Transform:
   m_ObjectHideFlags: 0
@@ -4092,7 +4092,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 0}
-  observerBehaviours: []
 --- !u!4 &1695307211
 Transform:
   m_ObjectHideFlags: 0
@@ -4953,42 +4952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572473c81d713d145a7b375ba2bf04d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatusFilter: 2
-  UsePoseSmoothing: 0
-  AnimationCurve:
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 3.3333333
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - time: 0.3
-      value: 1
-      inSlope: 3.3333333
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  OnTargetFound:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  OnTargetLost:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  mObserverBehaviour: {fileID: 0}
-  mCallbackReceivedOnce: 0
-  animator: {fileID: 0}
-  modelname: 
-  animationManager: {fileID: 0}
 --- !u!114 &2136998271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5066,7 +5029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2139087774
 Transform:
   m_ObjectHideFlags: 0
@@ -5098,7 +5061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2144606536
 Transform:
   m_ObjectHideFlags: 0
