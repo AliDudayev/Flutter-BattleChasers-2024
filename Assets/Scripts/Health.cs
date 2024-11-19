@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float maxHealth = 1000f;
     private float health;
-    private Slider slider;
+    [SerializeField] Slider slider;
     [SerializeField] float score = 1;
 
     [Header("Animations")]
@@ -30,7 +30,10 @@ public class Health : MonoBehaviour
         animator = GetComponent<Animator>();
 
         health = maxHealth;
-        slider = GetComponentInChildren<Slider>();
+        if (gameObject.GetComponent<EnemyMovement>() != null)
+        {
+            slider = GetComponentInChildren<Slider>();
+        }
         slider.maxValue = maxHealth;
         slider.value = health;
     }
