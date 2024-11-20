@@ -61,7 +61,7 @@ public class CharacterController : MonoBehaviour
         float vertical = VirtualJoystick.GetAxis("Vertical");
 
         // Dit calculate de movement richting
-        moveDirection = new Vector3(horizontal, 0, vertical).normalized;
+        moveDirection = new Vector3(horizontal, 0, vertical);
 
         // Dit bestuurt de loop animatie
         if (moveDirection.magnitude > 0.1f)
