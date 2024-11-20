@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float maxHealth = 1000f;
     private float health;
+    [SerializeField] GameObject canvas;
     [SerializeField] Slider slider;
     [SerializeField] float score = 1;
 
@@ -33,6 +34,10 @@ public class Health : MonoBehaviour
         if (gameObject.GetComponent<EnemyMovement>() != null)
         {
             slider = GetComponentInChildren<Slider>();
+        }
+        else if(gameObject.GetComponent<CharacterController>() != null)
+        {
+            canvas.SetActive(true);
         }
         slider.maxValue = maxHealth;
         slider.value = health;
@@ -78,7 +83,7 @@ public class Health : MonoBehaviour
         {
             gameObject.GetComponent<EnemyMovement>().enabled = false;
             // Find a object with name Score
-            GameObject scoreObject = GameObject.Find("Score");
+            GameObject scoreObject = GameObject.Find("Points");
             scoreObject.GetComponent<Text>().text = (int.Parse(scoreObject.GetComponent<Text>().text) + score).ToString();
 
             OnDeath?.Invoke();

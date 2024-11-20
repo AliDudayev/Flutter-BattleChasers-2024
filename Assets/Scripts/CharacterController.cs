@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Terresquall;
 
 public class CharacterController : MonoBehaviour
 {
@@ -54,11 +55,13 @@ public class CharacterController : MonoBehaviour
         }
 
         // Dit is basic Input
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        //float horizontal = Input.GetAxis("Horizontal");
+        //float vertical = Input.GetAxis("Vertical");
+        float horizontal = VirtualJoystick.GetAxis("Horizontal");
+        float vertical = VirtualJoystick.GetAxis("Vertical");
 
         // Dit calculate de movement richting
-        moveDirection = new Vector3(horizontal, 0, vertical).normalized;
+        moveDirection = new Vector3(horizontal, 0, vertical);
 
         // Dit bestuurt de loop animatie
         if (moveDirection.magnitude > 0.1f)
@@ -74,20 +77,16 @@ public class CharacterController : MonoBehaviour
         }
 
         // Linkermuisknop om aan te vallen
-        if (Input.GetButtonDown("Fire1"))
-        {
-            animator.SetBool("Attacking", true);
-            comboTimer = 0.5f;
+        //if (Input.GetButtonDown("Fire1"))
+        //{
+        //    Attack();
+        //}
+    }
 
-            //if (isAttacking == false)
-            //{
-            //    animator.SetBool("Attacking", true);
-            //}
-            //else
-            //{
-            //    comboTimer = 0.6f;
-            //}
-        }
+    public void Attack()
+    {
+        animator.SetBool("Attacking", true);
+        comboTimer = 0.4f;
     }
 
     private void SetAttack(int playerIsAttacking)
