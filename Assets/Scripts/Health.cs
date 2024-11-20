@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
         {
             slider = GetComponentInChildren<Slider>();
         }
-        else
+        else if(gameObject.GetComponent<CharacterController>() != null)
         {
             canvas.SetActive(true);
         }
@@ -83,7 +83,7 @@ public class Health : MonoBehaviour
         {
             gameObject.GetComponent<EnemyMovement>().enabled = false;
             // Find a object with name Score
-            GameObject scoreObject = GameObject.Find("Score");
+            GameObject scoreObject = GameObject.Find("Points");
             scoreObject.GetComponent<Text>().text = (int.Parse(scoreObject.GetComponent<Text>().text) + score).ToString();
 
             OnDeath?.Invoke();
