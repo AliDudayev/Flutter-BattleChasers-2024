@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Terresquall;
 
 public class CharacterController : MonoBehaviour
 {
@@ -54,8 +55,10 @@ public class CharacterController : MonoBehaviour
         }
 
         // Dit is basic Input
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        //float horizontal = Input.GetAxis("Horizontal");
+        //float vertical = Input.GetAxis("Vertical");
+        float horizontal = VirtualJoystick.GetAxis("Horizontal");
+        float vertical = VirtualJoystick.GetAxis("Vertical");
 
         // Dit calculate de movement richting
         moveDirection = new Vector3(horizontal, 0, vertical).normalized;
