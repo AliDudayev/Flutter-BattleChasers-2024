@@ -80,7 +80,7 @@ public class CharacterController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             animator.SetBool("Attacking", true);
-            comboTimer = 0.5f;
+            comboTimer = 0.4f;
 
             //if (isAttacking == false)
             //{

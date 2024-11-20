@@ -6318,13 +6318,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton_Mage
       objectReference: {fileID: 0}
-    - target: {fileID: 6747711269218608953, guid: 75b1d53fe41904b448c9629aa3a4d0fb, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 6427616480907392936, guid: 75b1d53fe41904b448c9629aa3a4d0fb, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6747711269218608953, guid: 75b1d53fe41904b448c9629aa3a4d0fb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6747711269218608953, guid: 75b1d53fe41904b448c9629aa3a4d0fb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
