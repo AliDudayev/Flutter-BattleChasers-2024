@@ -77,20 +77,16 @@ public class CharacterController : MonoBehaviour
         }
 
         // Linkermuisknop om aan te vallen
-        if (Input.GetButtonDown("Fire1"))
-        {
-            animator.SetBool("Attacking", true);
-            comboTimer = 0.4f;
+        //if (Input.GetButtonDown("Fire1"))
+        //{
+        //    Attack();
+        //}
+    }
 
-            //if (isAttacking == false)
-            //{
-            //    animator.SetBool("Attacking", true);
-            //}
-            //else
-            //{
-            //    comboTimer = 0.6f;
-            //}
-        }
+    public void Attack()
+    {
+        animator.SetBool("Attacking", true);
+        comboTimer = 0.4f;
     }
 
     private void SetAttack(int playerIsAttacking)
