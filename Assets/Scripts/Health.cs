@@ -8,9 +8,11 @@ public class Health : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float maxHealth = 1000f;
     private float health;
+    [SerializeField] float score = 1;
+
+    [Header("Alleen voor player")]
     [SerializeField] GameObject canvas;
     [SerializeField] Slider slider;
-    [SerializeField] float score = 1;
 
     [Header("Animations")]
     private Animator animator;
