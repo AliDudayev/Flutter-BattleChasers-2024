@@ -8,8 +8,9 @@ public class EnemyMovement : MonoBehaviour
     //public EnemyType enemyType;
 
     [Header("Settings")]
-    [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private float attackRange = 2f;
+    [SerializeField] float moveSpeed = 3f;
+    [SerializeField] float attackRange = 2f;
+    [SerializeField] int power = 50;
     //[SerializeField] private float rangedAttackRange = 10f; // Ranged attack distance
 
     [Header("Attack")]
@@ -39,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
         }
 
         if(attackCollider != null) {
-            attackCollider.SetPower(50);
+            attackCollider.SetPower(power);
         }
     }
 
