@@ -693,7 +693,7 @@ PrefabInstance:
     - target: {fileID: -4219506802544589539, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 66343a02a3afdcb428fff7366943748d, type: 2}
+      objectReference: {fileID: 2100000, guid: bdf3678dddcfd7a4f80d893685d5b2ce, type: 2}
     - target: {fileID: -3952486968618182649, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.00000040546556
@@ -717,7 +717,7 @@ PrefabInstance:
     - target: {fileID: -2591594810243057547, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 66343a02a3afdcb428fff7366943748d, type: 2}
+      objectReference: {fileID: 2100000, guid: bdf3678dddcfd7a4f80d893685d5b2ce, type: 2}
     - target: {fileID: -1388206636590870031, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.0000011673619
@@ -733,7 +733,7 @@ PrefabInstance:
     - target: {fileID: -1296569131805605410, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 66343a02a3afdcb428fff7366943748d, type: 2}
+      objectReference: {fileID: 2100000, guid: bdf3678dddcfd7a4f80d893685d5b2ce, type: 2}
     - target: {fileID: -1126656547760835792, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -37.96217
@@ -821,7 +821,7 @@ PrefabInstance:
     - target: {fileID: 666174405645048702, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 66343a02a3afdcb428fff7366943748d, type: 2}
+      objectReference: {fileID: 2100000, guid: bdf3678dddcfd7a4f80d893685d5b2ce, type: 2}
     - target: {fileID: 919132149155446097, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_Name
       value: Skeleton_Mage
@@ -829,11 +829,11 @@ PrefabInstance:
     - target: {fileID: 1766107317688927939, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 66343a02a3afdcb428fff7366943748d, type: 2}
+      objectReference: {fileID: 2100000, guid: bdf3678dddcfd7a4f80d893685d5b2ce, type: 2}
     - target: {fileID: 2131620637271574675, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 66343a02a3afdcb428fff7366943748d, type: 2}
+      objectReference: {fileID: 2100000, guid: bdf3678dddcfd7a4f80d893685d5b2ce, type: 2}
     - target: {fileID: 2196004506624635508, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0.0000002730527
@@ -901,7 +901,7 @@ PrefabInstance:
     - target: {fileID: 4728413743036674231, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 66343a02a3afdcb428fff7366943748d, type: 2}
+      objectReference: {fileID: 2100000, guid: bdf3678dddcfd7a4f80d893685d5b2ce, type: 2}
     - target: {fileID: 5234672116791654058, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
@@ -937,7 +937,7 @@ PrefabInstance:
     - target: {fileID: 6800260847235997587, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 66343a02a3afdcb428fff7366943748d, type: 2}
+      objectReference: {fileID: 2100000, guid: bdf3678dddcfd7a4f80d893685d5b2ce, type: 2}
     - target: {fileID: 6968337413404477144, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0.000015258788
@@ -1153,6 +1153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   score: 1
+  canvas: {fileID: 0}
+  slider: {fileID: 0}
   lerpSpeed: 225
 --- !u!114 &4453523699332568781
 MonoBehaviour:
@@ -1183,6 +1185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   attackRange: 15
+  power: 50
   attackCooldown: 2
   attackCollider: {fileID: 0}
   projectilePrefab: {fileID: 4219235610759538797, guid: 3ac344a43edb6ee4594f9b23eb875b2d, type: 3}
