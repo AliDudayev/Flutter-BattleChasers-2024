@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     private int spawnersFound = 0;
     private GameObject player;
 
+    [SerializeField] List<GameObject> startTimer = new List<GameObject>();
+
     private void Start()
     {
         observerBehaviours = FindObjectsOfType<ObserverBehaviour>();
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
                 observer.OnTargetStatusChanged += OnTargetStatusChanged;
             }
         }
+        StartCoroutine(StartGame());
     }
 
     private void OnTargetStatusChanged(ObserverBehaviour observer, TargetStatus status)
@@ -113,8 +116,26 @@ public class GameManager : MonoBehaviour
 
             gameStarted = true;
             UnityEngine.Debug.Log("All targets found! Starting first round.");
-            StartCoroutine(StartNewRound());
+            StartCoroutine(StartGame());
         }
+    }
+
+    private IEnumerator StartGame()
+    {
+        GameObject lastItem = null;
+        foreach (var item in startTimer)
+        {
+            item.SetActive(true);
+            if(lastItem != null)
+            {
+                lastItem.SetActive(false);
+            }
+            lastItem = item;
+            yield return new WaitForSeconds(1.5f);
+        }
+        lastItem.SetActive(false);
+
+        StartCoroutine(StartNewRound());
     }
 
     private IEnumerator StartNewRound()
