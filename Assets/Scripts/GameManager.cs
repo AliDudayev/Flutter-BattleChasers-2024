@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
                 observer.OnTargetStatusChanged += OnTargetStatusChanged;
             }
         }
-        StartCoroutine(StartGame());
     }
 
     private void OnTargetStatusChanged(ObserverBehaviour observer, TargetStatus status)
