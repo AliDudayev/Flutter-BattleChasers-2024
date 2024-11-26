@@ -33,7 +33,7 @@ RectTransform:
   m_Father: {fileID: 6579916208477476795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -436,7 +436,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: da977fcc9c8a95d4f9d817a92c64b01b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 66343a02a3afdcb428fff7366943748d, type: 2}
+      objectReference: {fileID: 2100000, guid: 54749ac32832a2949b18af2af3d5a874, type: 2}
     - target: {fileID: 919132149155446097, guid: da977fcc9c8a95d4f9d817a92c64b01b, type: 3}
       propertyPath: m_Name
       value: Skeleton_Staff
@@ -508,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -828,7 +828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1766107317688927939, guid: 2678e3cc8020f5b43a321c0c744fc38d, type: 3}
       propertyPath: m_Materials.Array.data[0]
