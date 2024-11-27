@@ -12,20 +12,29 @@ public class GameManager : MonoBehaviour
     [System.Serializable]
     public class EnemyType
     {
-        public GameObject enemyPrefab;      // Prefab voor dit type vijand
-        public Transform spawnPoint;        // Spawnpunt voor dit type vijand
-        public int baseSpawnCount = 3;      // Basis aantal vijanden dat spawnt in ronde 1
+        // Prefab voor dit type vijand
+        public GameObject enemyPrefab;
+        // Spawnpunt voor dit type vijand
+        public Transform spawnPoint;
+        // Basis aantal vijanden dat spawnt in ronde 1
+        public int baseSpawnCount = 3;      
         public ParticleSystem particle;
     }
 
-    public List<EnemyType> enemyTypes; // Lijst van alle vijandtypen
-    public List<Transform> spawnPoints = new List<Transform>(); // Lijst van spawnpoints (gekopieerd van targets)
-    private ObserverBehaviour[] observerBehaviours; // Vuforia observer-behaviours
+    // Lijst van alle vijandtypen
+    public List<EnemyType> enemyTypes;
+    // Lijst van spawnpoints (gekopieerd van targets)
+    public List<Transform> spawnPoints = new List<Transform>();
+    // Vuforia observer-behaviours
+    private ObserverBehaviour[] observerBehaviours; 
     private Dictionary<ObserverBehaviour, bool> targetStatuses = new Dictionary<ObserverBehaviour, bool>();
 
-    public int currentRound = 1; // Huidige ronde
-    public float spawnInterval = 1f; // Interval tussen individuele spawns
-    public List<GameObject> activeEnemies = new List<GameObject>(); // Lijst van actieve vijanden in de huidige ronde
+    // Huidige ronde
+    public int currentRound = 1;
+    // Interval tussen individuele spawns
+    public float spawnInterval = 1f;
+    // Lijst van actieve vijanden in de huidige ronde
+    public List<GameObject> activeEnemies = new List<GameObject>(); 
     private bool isRoundInProgress = false;
     private bool gameStarted = false;
 
@@ -33,6 +42,7 @@ public class GameManager : MonoBehaviour
     private GameObject player;
 
     [SerializeField] List<GameObject> startTimer = new List<GameObject>();
+    [SerializeField] GameObject endScreen;
 
     private void Start()
     {
@@ -54,21 +64,17 @@ public class GameManager : MonoBehaviour
         {
             targetStatuses[observer] = true;
 
-            // Move the child spawners to the GameManager after a delay
             foreach (Transform child in observer.transform)
             {
                 if (!spawnPoints.Contains(child))
                 {
-                    // Start the coroutine to set the position after a delay
                     StartCoroutine(SetPositionAfterDelay(child, observer, 1f));
 
-                    // Set spawn point active and add to the list
                     child.gameObject.SetActive(true);
                     spawnPoints.Add(child);
 
                     spawnersFound++;
 
-                    // Update the reference in the EnemyType
                     foreach (var enemyType in enemyTypes)
                     {
                         if (enemyType.spawnPoint == observer.transform)
@@ -199,6 +205,8 @@ public class GameManager : MonoBehaviour
 
     public void TriggerEnemiesWinAnimation()
     {
+        endScreen.SetActive(true);
+
         GameObject scoreObject = GameObject.Find("Points");
         string score = int.Parse(scoreObject.GetComponent<Text>().text).ToString();
         GameObject endScoreObject = GameObject.Find("End Score");

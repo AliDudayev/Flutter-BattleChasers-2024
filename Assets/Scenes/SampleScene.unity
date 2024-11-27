@@ -2162,7 +2162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.4636, y: 124.1}
+  m_AnchoredPosition: {x: 11.4, y: 124.1}
   m_SizeDelta: {x: 117.5906, y: 246.475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &690713153
@@ -3921,6 +3921,7 @@ MonoBehaviour:
   - {fileID: 1469337170}
   - {fileID: 95546802}
   - {fileID: 442645475}
+  endScreen: {fileID: 1295939313}
 --- !u!114 &1046925039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3945,7 +3946,7 @@ GameObject:
   - component: {fileID: 1061703795}
   - component: {fileID: 1061703794}
   m_Layer: 5
-  m_Name: Score
+  m_Name: End Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4342,8 +4343,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 13.9334, y: 0}
+  m_SizeDelta: {x: -12.9, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1214652690
 MonoBehaviour:
