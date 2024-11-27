@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SocialPlatforms.Impl;
 using Vuforia;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -149,9 +151,6 @@ public class GameManager : MonoBehaviour
         {
             if (spawnPoints.Count == 0) yield break;
 
-            // Pick a random spawn point
-            //enemyType.spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
-
             int spawnCount = enemyType.baseSpawnCount * roundMultiplier;
 
             StartCoroutine(SpawnEnemies(enemyType, spawnCount));
@@ -187,23 +186,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Coroutine to set position after delay
     private IEnumerator SetPositionAfterDelay(Transform spawnPoint, ObserverBehaviour observer, float delay)
     {
-        // Wait for the specified delay
         yield return new WaitForSeconds(delay);
 
-        // Move the spawn point to the world position of the parent observer (target) after the delay
         spawnPoint.position = observer.transform.position;
-        spawnPoint.SetParent(transform); // Move to GameManager
+        spawnPoint.SetParent(transform);
 
-        // Set the rotation, keeping the y rotation from the behaviour and setting x and z to 0
         Vector3 rotation = observer.transform.rotation.eulerAngles;
-        spawnPoint.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f); // Set x and z to 0, keep y
+        spawnPoint.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
     public void TriggerEnemiesWinAnimation()
     {
+        GameObject scoreObject = GameObject.Find("Points");
+        string score = int.Parse(scoreObject.GetComponent<Text>().text).ToString();
+        GameObject endScoreObject = GameObject.Find("End Score");
+        endScoreObject.GetComponent<Text>().text = score;
+
         foreach (GameObject enemy in activeEnemies)
         {
             if (enemy != null)

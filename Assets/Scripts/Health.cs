@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -84,7 +85,7 @@ public class Health : MonoBehaviour
         if (gameObject.GetComponent<EnemyMovement>() != null)
         {
             gameObject.GetComponent<EnemyMovement>().enabled = false;
-            // Find a object with name Score
+
             GameObject scoreObject = GameObject.Find("Points");
             scoreObject.GetComponent<Text>().text = (int.Parse(scoreObject.GetComponent<Text>().text) + score).ToString();
 
@@ -107,5 +108,11 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(5f); 
         Destroy(gameObject);
         // Speel smoke particle effect
+    }
+
+    private void FindScoreObject(string name) 
+    {
+        GameObject scoreObject = GameObject.Find(name);
+        scoreObject.GetComponent<Text>().text = (int.Parse(scoreObject.GetComponent<Text>().text) + score).ToString();
     }
 }
