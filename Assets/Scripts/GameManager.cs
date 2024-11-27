@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     private GameObject player;
 
     [SerializeField] List<GameObject> startTimer = new List<GameObject>();
+    [SerializeField] GameObject startScreen;
     [SerializeField] GameObject endScreen;
 
     private void Start()
@@ -142,6 +143,7 @@ public class GameManager : MonoBehaviour
         }
         lastItem.SetActive(false);
 
+        startScreen.SetActive(true);
         StartCoroutine(StartNewRound());
     }
 
