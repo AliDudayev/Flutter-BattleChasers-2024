@@ -5,7 +5,7 @@ using Vuforia;
 
 public class PlayerFinder : MonoBehaviour
 {
-    public GameObject Character;
+    public GameObject character;
     private ObserverBehaviour[] observerBehaviours;
 
     void Start()
@@ -29,20 +29,26 @@ public class PlayerFinder : MonoBehaviour
         if (status.Status == Status.TRACKED || status.Status == Status.EXTENDED_TRACKED)
         {
             // Set Character to the GameObject of the first detected target if not already set
-            if (Character == null)
+            if (character == null)
             {
-                Character = behaviour.transform.GetChild(0).gameObject;
+                character = behaviour.transform.GetChild(0).gameObject;
 
-                GameObject instantiatedCharacter = Instantiate(Character, transform);
+                //GameObject instantiatedCharacter = Instantiate(character, transform);
                 //instantiatedCharacter.SetActive(true);
+                character = behaviour.transform.GetChild(0).gameObject;
+                character.transform.SetParent(transform);
+                //character.SetActive(true);
 
                 // Enable all children and components recursively
-                EnableAllComponents(instantiatedCharacter);
+                //EnableAllComponents(instantiatedCharacter);
+                EnableAllComponents(character);
 
-                StartCoroutine(SetCharacterPositionAfterDelay(instantiatedCharacter, behaviour, 1f));
+                //StartCoroutine(SetCharacterPositionAfterDelay(instantiatedCharacter, behaviour, 1f));
+                StartCoroutine(SetCharacterPositionAfterDelay(character, behaviour, 1f));
 
                 GameManager gameManager = FindObjectOfType<GameManager>();
-                gameManager.PlayerIsFound(instantiatedCharacter);
+                //gameManager.PlayerIsFound(instantiatedCharacter);
+                gameManager.PlayerIsFound(character);
             }
         }
     }
