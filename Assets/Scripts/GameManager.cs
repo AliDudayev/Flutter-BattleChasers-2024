@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     public void PlayerIsFound(GameObject newPlayer)
     {
         player = newPlayer;
+        startScreen.SetActive(true);
         CheckAllTargetsFound();
     }
 
@@ -143,7 +144,6 @@ public class GameManager : MonoBehaviour
         }
         lastItem.SetActive(false);
 
-        startScreen.SetActive(true);
         StartCoroutine(StartNewRound());
     }
 
