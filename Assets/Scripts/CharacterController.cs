@@ -60,8 +60,21 @@ public class CharacterController : MonoBehaviour
         float horizontal = VirtualJoystick.GetAxis("Horizontal");
         float vertical = VirtualJoystick.GetAxis("Vertical");
 
-        // Dit calculate de movement richting
-        moveDirection = new Vector3(horizontal, 0, vertical);
+        //// Dit calculate de movement richting
+        //moveDirection = new Vector3(horizontal, 0, vertical);
+        // Get the Vuforia camera's forward and right directions
+        Transform cameraTransform = Camera.main.transform;
+        Vector3 camForward = cameraTransform.forward;
+        Vector3 camRight = cameraTransform.right;
+
+        // Flatten the forward and right vectors to ignore vertical tilt
+        camForward.y = 0;
+        camRight.y = 0;
+        camForward.Normalize();
+        camRight.Normalize();
+
+        // Calculate the movement direction relative to the camera
+        moveDirection = camForward * vertical + camRight * horizontal;
 
         // Dit bestuurt de loop animatie
         if (moveDirection.magnitude > 0.1f)
@@ -165,7 +178,7 @@ public class CharacterController : MonoBehaviour
         // Beweeg de character
         Vector3 movement = moveDirection * moveSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + movement);
-        if(movement != Vector3.zero)
+        if (movement != Vector3.zero)
         {
             rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
         }
