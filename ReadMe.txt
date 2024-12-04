@@ -1,1 +1,12 @@
-This is a Unity project I created as part of a larger project where my team and I used Flutter, Vuforia, and Unity to develop an AR game. I was responsible for the Unity and Vuforia components. In this game, you control a knight who battles hordes of skeleton enemies to achieve the highest score.
+Beste,
+
+Mijn moeder, Larissa Sagayeva, is mantelzorger voor mijn broertje, die het syndroom van Down heeft. Dit jaar hebben wij geen e-mail ontvangen om haar opnieuw in te schrijven als mantelzorger. Wij zouden dit echter graag alsnog willen doen.
+
+Kunt u mij laten weten hoe dit proces verloopt? Ik heb online geen informatie hierover kunnen vinden. Ter ondersteuning heb ik in de bijlage het attest van evaluatie van de ondersteuningsnood van mijn broertje toegevoegd.
+
+Alvast bedankt voor uw hulp.
+
+Met vriendelijke groeten,
+Ali Dudayev
+
+ 
