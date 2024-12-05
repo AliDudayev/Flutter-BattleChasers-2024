@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SocialPlatforms.Impl;
 using Vuforia;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class GameManager : MonoBehaviour
         public int baseSpawnCount = 3;      
         public ParticleSystem particle;
     }
+
+    // voor de boss draken
+    public List<GameObject> BossesPrefabs = new List<GameObject>();
+    public GameObject portal;
 
     // Lijst van alle vijandtypen
     public List<EnemyType> enemyTypes;
@@ -57,6 +62,40 @@ public class GameManager : MonoBehaviour
                 observer.OnTargetStatusChanged += OnTargetStatusChanged;
             }
         }
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnDragon();
+        }
+    }
+
+    private void SpawnDragon()
+    {
+        // activeEnemies.Add(boss);
+        // boss.GetComponent<Health>().OnDeath += () => RemoveEnemyFromList(boss);
+        Vector3 location = player.transform.position;
+        location.y += 15;
+        GameObject portalInstance = Instantiate(portal, location, Quaternion.identity);
+        StartCoroutine(RemovePortal(portalInstance, location, portalInstance));
+    }
+
+    private IEnumerator RemovePortal(GameObject portal, Vector3 location, GameObject portalInstance)
+    {
+        yield return new WaitForSeconds(1f);
+
+        int randomInt = Random.Range(0, BossesPrefabs.Count);
+        GameObject boss = Instantiate(BossesPrefabs[randomInt], location, Quaternion.identity);
+        
+    
+        ParticleSystem portalParticle = portalInstance.transform.GetChild(1).GetComponent<ParticleSystem>();
+        portalParticle.Play();
+        yield return new WaitForSeconds(1f);
+        portalParticle.Stop();
+        yield return new WaitForSeconds(2f);
+    
+        Destroy(portal);
     }
 
     private void OnTargetStatusChanged(ObserverBehaviour observer, TargetStatus status)
