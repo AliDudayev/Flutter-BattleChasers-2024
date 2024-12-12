@@ -7,7 +7,8 @@ using FlutterUnityIntegration;
 public class GameEnd : MonoBehaviour
 {
     private int endScore;
-    private HashSet<string> killedDragons = new HashSet<string>(); // Store unique dragon IDs
+    private List<string> killedDragons = new List<string>(); // Store unique dragon IDs
+    
 
     public void ExitGame()
     {

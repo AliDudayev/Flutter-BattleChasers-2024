@@ -69,6 +69,12 @@ public class GameManager : MonoBehaviour
         {
             SpawnDragon();
         }
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            GameObject dragon = GameObject.Find("Red_Usurper");
+            dragon.GetComponent<Health>().ApplyDamage(1000, transform.position);
+
+        }
     }
 
     private void SpawnDragon()

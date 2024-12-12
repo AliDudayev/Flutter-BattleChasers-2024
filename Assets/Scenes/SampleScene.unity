@@ -841,6 +841,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 633075543}
+        m_TargetAssemblyTypeName: CharacterController, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &229021046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3369,6 +3381,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7550432543100381785, guid: 000832214335ffd4782827d2a4510f4a, type: 3}
   m_PrefabInstance: {fileID: 550475851}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &633075543 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8104166946503345204, guid: a411013092b171340a801ef709a7bb88, type: 3}
+  m_PrefabInstance: {fileID: 5428408768223268621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abbddaa848898d4da784bb941660d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &633075547 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3324384697536115145, guid: a411013092b171340a801ef709a7bb88, type: 3}
+  m_PrefabInstance: {fileID: 5428408768223268621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &637714057
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,7 +4230,7 @@ MonoBehaviour:
   flyToPlayerSpeed: 8
   landDistance: 15
   descentSpeed: 1
-  player: {fileID: 1164409111}
+  player: {fileID: 633075547}
 --- !u!54 &880797299
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4247,7 +4275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080de86164295074fb4c8ccba0eae761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1000
   score: 1000
   canvas: {fileID: 0}
   slider: {fileID: 0}
@@ -4420,6 +4448,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3484051073119483639, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484051073119797139, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484051073119797139, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484051073119797139, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3484051073119797139, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
@@ -4998,7 +5038,7 @@ RectTransform:
   m_Father: {fileID: 690713152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 13.9334, y: 0}
   m_SizeDelta: {x: -12.9, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5476,7 +5516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2695763816281680755, guid: a411013092b171340a801ef709a7bb88, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3324384697536115145, guid: a411013092b171340a801ef709a7bb88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7956,7 +7996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2143112000
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8112,7 +8152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2695763816281680755, guid: a411013092b171340a801ef709a7bb88, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3324384697536115145, guid: a411013092b171340a801ef709a7bb88, type: 3}
       propertyPath: m_LocalPosition.x
