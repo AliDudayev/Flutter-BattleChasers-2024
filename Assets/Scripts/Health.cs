@@ -88,6 +88,8 @@ public class Health : MonoBehaviour
             if(gameObject.GetComponent<DragonMovement>() != null)
             {
                 gameObject.GetComponent<DragonMovement>().enabled = false;
+                GameObject gameManager = GameObject.Find("GameManager");
+                gameManager.GetComponent<GameEnd>().AddKilledDragon(gameObject.name);
             }
             else
             {
