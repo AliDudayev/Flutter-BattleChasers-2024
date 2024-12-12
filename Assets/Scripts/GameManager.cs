@@ -249,9 +249,12 @@ public class GameManager : MonoBehaviour
         endScreen.SetActive(true);
 
         GameObject scoreObject = GameObject.Find("Points");
-        string score = int.Parse(scoreObject.GetComponent<Text>().text).ToString();
+        int score = int.Parse(scoreObject.GetComponent<Text>().text);
+
+        GetComponent<GameEnd>().SetEndScore(score);
+
         GameObject endScoreObject = GameObject.Find("End Score");
-        endScoreObject.GetComponent<Text>().text = score;
+        endScoreObject.GetComponent<Text>().text = score.ToString();
 
         foreach (GameObject enemy in activeEnemies)
         {
