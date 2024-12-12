@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameEnd : MonoBehaviour
 {
+    private int endScore;
     public void ExitGame()
     {
         Application.Quit();
@@ -12,5 +13,13 @@ public class GameEnd : MonoBehaviour
     public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void SetEndScore(int newEndScore)
+    {
+        endScore = newEndScore;
+    }
+    public int GetEndScore()
+    {
+        return endScore;
     }
 }
