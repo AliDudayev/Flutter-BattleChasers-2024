@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     // Lijst van alle vijandtypen
     public List<EnemyType> enemyTypes;
     // Lijst van spawnpoints (gekopieerd van targets)
-    public List<Transform> spawnPoints = new List<Transform>();
+    private List<Transform> spawnPoints = new List<Transform>();
     // Vuforia observer-behaviours
     private ObserverBehaviour[] observerBehaviours; 
     private Dictionary<ObserverBehaviour, bool> targetStatuses = new Dictionary<ObserverBehaviour, bool>();
