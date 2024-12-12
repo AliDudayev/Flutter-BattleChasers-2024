@@ -2769,6 +2769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red_Usurper
       objectReference: {fileID: 0}
+    - target: {fileID: 3484051073119483639, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3484051073119797139, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.28586
