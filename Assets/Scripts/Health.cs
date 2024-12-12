@@ -34,8 +34,9 @@ public class Health : MonoBehaviour
         animator = GetComponent<Animator>();
 
         health = maxHealth;
-        if (gameObject.GetComponent<EnemyMovement>() != null)
+        if (gameObject.GetComponent<EnemyMovement>() != null || gameObject.GetComponent<DragonMovement>() != null)
         {
+
             slider = GetComponentInChildren<Slider>();
         }
         else if(gameObject.GetComponent<CharacterController>() != null)
@@ -82,9 +83,16 @@ public class Health : MonoBehaviour
     {
         animator.SetBool("IsDead", true);
 
-        if (gameObject.GetComponent<EnemyMovement>() != null)
+        if (gameObject.GetComponent<EnemyMovement>() != null || gameObject.GetComponent<DragonMovement>() != null)
         {
-            gameObject.GetComponent<EnemyMovement>().enabled = false;
+            if(gameObject.GetComponent<DragonMovement>() != null)
+            {
+                gameObject.GetComponent<DragonMovement>().enabled = false;
+            }
+            else
+            {
+                gameObject.GetComponent<EnemyMovement>().enabled = false;
+            }
 
             GameObject scoreObject = GameObject.Find("Points");
             scoreObject.GetComponent<Text>().text = (int.Parse(scoreObject.GetComponent<Text>().text) + score).ToString();

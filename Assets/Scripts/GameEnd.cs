@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FlutterUnityIntegration;
 
 public class GameEnd : MonoBehaviour
 {
     private int endScore;
+    private HashSet<string> killedDragons = new HashSet<string>(); // Store unique dragon IDs
+
     public void ExitGame()
     {
         Application.Quit();
@@ -22,4 +25,39 @@ public class GameEnd : MonoBehaviour
     {
         return endScore;
     }
+
+    public void AddKilledDragon(string dragonID)
+    {
+        if (!string.IsNullOrEmpty(dragonID))
+        {
+            killedDragons.Add(dragonID);
+        }
+    }
+
+    // Method to get the list of killed dragons
+    public List<string> GetKilledDragons()
+    {
+        return new List<string>(killedDragons);
+    }
+
+
+    // Send the score and killed dragons to Flutter
+    public void SendResultsToFlutter()
+    {
+        // Create a data object to serialize
+        var results = new
+        {
+            score = endScore,
+            killedDragons = new List<string>(killedDragons)
+        };
+
+        // Convert to JSON
+        string jsonResults = JsonUtility.ToJson(results);
+
+        // Send the JSON to Flutter
+        UnityMessageManager.Instance.SendMessageToFlutter(jsonResults);
+    }
 }
+
+
+

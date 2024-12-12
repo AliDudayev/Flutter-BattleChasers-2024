@@ -25,6 +25,9 @@ public class DragonMovement : MonoBehaviour
     private float walkSpeed = 2.0f;          // Speed for walking during combat
     private float attackRange = 2.0f;        // Range within which the dragon attacks the player
 
+    private float attackCooldown = 4.0f;    // Time between attacks
+    private float attackTimer = 0.0f;       // Timer to track cooldown
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -151,11 +154,13 @@ public class DragonMovement : MonoBehaviour
         // Calculate the distance to the player
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
+        // Update the attack timer
+        attackTimer -= Time.deltaTime;
+
         if (distanceToPlayer > attackRange)
         {
             // Move toward the player
             animator.SetBool("Running", true);
-            animator.SetBool("Attacking", false);
 
             // Adjust target position to ensure the dragon remains on the ground
             Vector3 targetPosition = new Vector3(player.position.x, groundHeight, player.position.z);
@@ -168,14 +173,18 @@ public class DragonMovement : MonoBehaviour
         }
         else
         {
-            // Stop moving and attack
+            // Stop moving
             animator.SetBool("Running", false);
-            animator.SetBool("Attacking", true);
 
-            // Trigger attack logic (e.g., damage player)
-            Debug.Log("Dragon is attacking the player!");
+            // Attack if the cooldown is complete
+            if (attackTimer <= 0)
+            {
+                animator.SetTrigger("Attacking");
+                attackTimer = attackCooldown; // Reset the cooldown
+            }
         }
     }
+
 
     private IEnumerator TransitionToFlyToPlayer()
     {
