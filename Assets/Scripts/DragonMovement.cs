@@ -22,6 +22,9 @@ public class DragonMovement : MonoBehaviour
     private string behavior = "FlyInCircles"; // Initial behavior
     private Vector3 landingPosition;       // Landing position variable
 
+    private float walkSpeed = 2.0f;          // Speed for walking during combat
+    private float attackRange = 2.0f;        // Range within which the dragon attacks the player
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -46,6 +49,9 @@ public class DragonMovement : MonoBehaviour
                 break;
             case "FlyToPlayer":
                 FlyToPlayer();
+                break;
+            case "Land":
+                Land();
                 break;
             case "Combat":
                 Combat();
@@ -96,11 +102,11 @@ public class DragonMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPosition) < landDistance)
         {
             animator.SetTrigger("Land");
-            behavior = "Combat";
+            behavior = "Land";
         }
     }
 
-    private void Combat()
+    private void Land()
     {
         // Calculate landing position if not already set
         if (landingPosition == Vector3.zero)
@@ -123,8 +129,51 @@ public class DragonMovement : MonoBehaviour
             // Trigger combat-ready animations or other logic
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Combat"))
             {
-                animator.SetTrigger("Combat");
+                //animator.SetTrigger("Combat");
+                //StartCoroutine(ChangeToCombat());
             }
+        }
+    }
+
+    //private IEnumerator ChangeToCombat()
+    //{
+    //    yield return new WaitForSeconds(5.5f);
+    //    behavior = "Combat";
+    //}
+
+    public void ChangeBehaviour(string behaviour)
+    {
+        this.behavior = behaviour;
+    }
+
+    private void Combat()
+    {
+        // Calculate the distance to the player
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer > attackRange)
+        {
+            // Move toward the player
+            animator.SetBool("Running", true);
+            animator.SetBool("Attacking", false);
+
+            // Adjust target position to ensure the dragon remains on the ground
+            Vector3 targetPosition = new Vector3(player.position.x, groundHeight, player.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, walkSpeed * Time.fixedDeltaTime);
+
+            // Rotate to face the player
+            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+            Quaternion toRotation = Quaternion.LookRotation(directionToPlayer, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, Time.fixedDeltaTime * 2f);
+        }
+        else
+        {
+            // Stop moving and attack
+            animator.SetBool("Running", false);
+            animator.SetBool("Attacking", true);
+
+            // Trigger attack logic (e.g., damage player)
+            Debug.Log("Dragon is attacking the player!");
         }
     }
 
