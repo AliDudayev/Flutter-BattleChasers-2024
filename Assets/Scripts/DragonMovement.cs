@@ -8,7 +8,7 @@ public class DragonMovement : MonoBehaviour
     public float circleSpeed = 2.0f;    // Speed of circling
     public Vector3 circleCenter;        // Center of circling movement (set dynamically)
 
-    public float flyToPlayerSpeed = 5.0f;   // Speed when flying directly to the player
+    public float flyToPlayerSpeed = 7.0f;   // Speed when flying directly to the player
     public float landDistance = 10.0f;      // Distance to land away from the player
     public float descentSpeed = 1.0f;       // Speed of descent during combat setup
 
@@ -23,7 +23,7 @@ public class DragonMovement : MonoBehaviour
     private Vector3 landingPosition;       // Landing position variable
 
     private float walkSpeed = 2.0f;          // Speed for walking during combat
-    private float attackRange = 2.0f;        // Range within which the dragon attacks the player
+    public float attackRange = 2.0f;        // Range within which the dragon attacks the player
 
     private float attackCooldown = 4.0f;    // Time between attacks
     private float attackTimer = 0.0f;       // Timer to track cooldown
