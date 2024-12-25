@@ -760,7 +760,7 @@ GameObject:
   - component: {fileID: 229021046}
   - component: {fileID: 229021045}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: AttackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -829,18 +829,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1164409114}
-        m_TargetAssemblyTypeName: CharacterController, Assembly-CSharp
-        m_MethodName: Attack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 633075543}
         m_TargetAssemblyTypeName: CharacterController, Assembly-CSharp
         m_MethodName: Attack
@@ -4228,9 +4216,10 @@ MonoBehaviour:
   circleSpeed: 2
   circleCenter: {x: 0, y: 0, z: 0}
   flyToPlayerSpeed: 8
-  landDistance: 15
+  landDistance: 25
   descentSpeed: 1
   player: {fileID: 633075547}
+  attackRange: 7.5
 --- !u!54 &880797299
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4280,6 +4269,28 @@ MonoBehaviour:
   canvas: {fileID: 0}
   slider: {fileID: 0}
   lerpSpeed: 225
+--- !u!64 &880797304
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880797297}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &908109188
 GameObject:
   m_ObjectHideFlags: 0
@@ -4472,7 +4483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3484051073119797139, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 48.3
+      value: 95.6
       objectReference: {fileID: 0}
     - target: {fileID: 3484051073119797139, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4518,6 +4529,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3484051073119483639, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       insertIndex: -1
       addedObject: {fileID: 880797302}
+    - targetCorrespondingSourceObject: {fileID: 3484051073119483639, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 880797304}
   m_SourcePrefab: {fileID: 100100000, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
 --- !u!1 &1046925036
 GameObject:
@@ -4932,17 +4946,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3324384697536115145, guid: a411013092b171340a801ef709a7bb88, type: 3}
   m_PrefabInstance: {fileID: 1418252471}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1164409114 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8104166946503345204, guid: a411013092b171340a801ef709a7bb88, type: 3}
-  m_PrefabInstance: {fileID: 1418252471}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8abbddaa848898d4da784bb941660d39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1197861851
 PrefabInstance:
   m_ObjectHideFlags: 0
