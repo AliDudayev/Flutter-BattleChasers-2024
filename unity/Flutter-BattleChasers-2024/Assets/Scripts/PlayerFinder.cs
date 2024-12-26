@@ -46,9 +46,9 @@ public class PlayerFinder : MonoBehaviour
                 //StartCoroutine(SetCharacterPositionAfterDelay(instantiatedCharacter, behaviour, 1f));
                 StartCoroutine(SetCharacterPositionAfterDelay(character, behaviour, 1f));
 
-                GameManager gameManager = FindObjectOfType<GameManager>();
-                //gameManager.PlayerIsFound(instantiatedCharacter);
-                gameManager.PlayerIsFound(character);
+                //GameManager gameManager = FindObjectOfType<GameManager>();
+                ////gameManager.PlayerIsFound(instantiatedCharacter);
+                //gameManager.PlayerIsFound(character);
             }
         }
     }
@@ -90,5 +90,7 @@ public class PlayerFinder : MonoBehaviour
         Vector3 rotation = behaviour.transform.rotation.eulerAngles;
         instantiatedCharacter.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f); // Set x and z to 0, keep y
 
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        gameManager.PlayerIsFound(character);
     }
 }

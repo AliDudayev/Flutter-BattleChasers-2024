@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
 
         // Apply the same offsets as the camera-based approach
         location.y += 30; // Raise the spawn point by 30 units
-        location += player.transform.forward * 200; // Move 150 units in front of the player
+        location += player.transform.forward * 220; // Move 150 units in front of the player
 
         // Instantiate the portal and spawn the dragon
         GameObject portalInstance = Instantiate(portal, location, Quaternion.identity);
@@ -157,9 +157,18 @@ public class GameManager : MonoBehaviour
             {
                 if (!spawnPoints.Contains(child))
                 {
-                    StartCoroutine(SetPositionAfterDelay(child, observer, 1f));
+                    StartCoroutine(SetPositionAfterDelay(child, observer, 0.1f));
 
                     child.gameObject.SetActive(true);
+
+                    //if (child.GetComponent<ParticleSystem>() != null)
+                    //{
+                    //    ParticleSystem ps = child.GetComponent<ParticleSystem>();
+                    //    ps.Clear();
+                    //    ps.Stop();
+                    //    ps.Play();
+                    //}
+
                     spawnPoints.Add(child);
 
                     spawnersFound++;
@@ -174,7 +183,7 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            CheckAllTargetsFound();
+            //CheckAllTargetsFound();
 
         }
         else
@@ -306,6 +315,8 @@ public class GameManager : MonoBehaviour
 
         Vector3 rotation = observer.transform.rotation.eulerAngles;
         spawnPoint.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
+        CheckAllTargetsFound();
     }
 
     public void TriggerEnemiesWinAnimation()

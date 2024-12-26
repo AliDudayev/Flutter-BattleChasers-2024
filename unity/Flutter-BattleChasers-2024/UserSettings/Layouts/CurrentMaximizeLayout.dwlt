@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 60707
+  controlID: 64510
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 60659
+  controlID: 64464
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 60635
+  controlID: 64440
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -241,7 +241,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: bc9bfeffd8f0ffff8cf1ffff90f1ffff94f1ffffd4f1ffffd8f1ffffdcf1ffffe0f1ffffe4f1ffffe8f1ffffecf1ffff04f2ffff2afbffffded604006ed7040028d8040082d8040094d80400
+      m_ExpandedIDs: bc9bfeffd8f0ffff8cf1ffff90f1ffff94f1ffffd4f1ffffd8f1ffffdcf1ffffe0f1ffffe4f1ffffe8f1ffffecf1ffff04f2ffff2afbffff6ed7040028d8040094d80400
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -949,7 +949,7 @@ MonoBehaviour:
   - {fileID: 12}
   - {fileID: 13}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -995,7 +995,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sounds/Dragon
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1003,15 +1003,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Sounds/Dragon
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Projects\Unity\Flutter-BattleChasers-2024\unity\Flutter-BattleChasers-2024
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 763}
-    m_SelectedIDs: 149b0000
-    m_LastClickedID: 39700
+    scrollPos: {x: 0, y: 618}
+    m_SelectedIDs: 0c9b0000
+    m_LastClickedID: 39692
     m_ExpandedIDs: 00000000409a0000429a0000449a0000469a0000489a00004a9a00004c9a00004e9a0000509a0000889a0000069b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1065,8 +1065,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: f8d60400
-    m_LastClickedInstanceID: 317176
+    m_SelectedInstanceIDs: 3692feff
+    m_LastClickedInstanceID: -93642
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000246f0000d26d0000166d0000f41b01001ae300002ee30000
     m_RenameOverlay:
@@ -1166,7 +1166,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 317176
+  m_LastSelectedObjectID: 317360
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1233,7 +1233,7 @@ MonoBehaviour:
     m_CachedPref: 151
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 317176
+  m_LastInspectedObjectInstanceID: -93642
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
