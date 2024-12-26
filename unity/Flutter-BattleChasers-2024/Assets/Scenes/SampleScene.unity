@@ -268,7 +268,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 300
+    m_FontSize: 250
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -2864,7 +2864,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 300
+    m_FontSize: 250
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -3903,7 +3903,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 300
+    m_FontSize: 250
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -5528,6 +5528,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 967974092}
     - target: {fileID: 7205119741625740711, guid: a411013092b171340a801ef709a7bb88, type: 3}
+      propertyPath: maxHealth
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7205119741625740711, guid: a411013092b171340a801ef709a7bb88, type: 3}
       propertyPath: knightTarget
       value: 
       objectReference: {fileID: 2136998268}
@@ -6302,7 +6306,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 300
+    m_FontSize: 250
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -8598,6 +8602,10 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 967974092}
+    - target: {fileID: 7205119741625740711, guid: a411013092b171340a801ef709a7bb88, type: 3}
+      propertyPath: maxHealth
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 7205119741625740711, guid: a411013092b171340a801ef709a7bb88, type: 3}
       propertyPath: knightTarget
       value: 
