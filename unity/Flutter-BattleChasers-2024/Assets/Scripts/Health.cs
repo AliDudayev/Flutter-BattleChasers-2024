@@ -155,7 +155,14 @@ public class Health : MonoBehaviour
             FindAnyObjectByType<GameManager>().TriggerEnemiesWinAnimation();
         }
         //Console.WriteLine("6");
-        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        if(gameObject.GetComponent<CapsuleCollider>() != null)
+        {
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        }
+        else
+        {
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
 
         if (gameObject.GetComponent<Rigidbody>() != null)
         {

@@ -12,9 +12,9 @@ public class GameEnd : MonoBehaviour
     private List<string> killedDragons = new List<string>(); // Store unique dragon IDs
     public int killCount;
 
-    public Text debug;
+    //public Text debug;
 
-    private int buttonPressed = 0;
+    //private int buttonPressed = 0;
 
     //public void ExitGame()
     //{
@@ -63,7 +63,7 @@ public class GameEnd : MonoBehaviour
     public void SendResultsToFlutter()
     {
         // Create a data object to serialize
-        debug.text += "\nSendResultsToFlutter entered";
+        //debug.text += "\nSendResultsToFlutter entered";
 
         var results = new GameResults
         {
@@ -76,14 +76,14 @@ public class GameEnd : MonoBehaviour
         string jsonResults = JsonUtility.ToJson(results);
 
         // Debug log the result
-        debug.text += "\nSending results to Flutter: " + jsonResults;
+        //debug.text += "\nSending results to Flutter: " + jsonResults;
 
-        debug.text += "\nKilledDragons: " + string.Join(", ", killedDragons) + "\nEndscore: " + endScore + "\ncount: " + killCount;
-        if(buttonPressed < 1)
-        {
-            buttonPressed++;
-            return;
-        }
+        //debug.text += "\nKilledDragons: " + string.Join(", ", killedDragons) + "\nEndscore: " + endScore + "\ncount: " + killCount;
+        //if(buttonPressed < 1)
+        //{
+        //    buttonPressed++;
+        //    return;
+        //}
         
 
         // Send the JSON to Flutter
