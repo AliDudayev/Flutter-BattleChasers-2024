@@ -9,6 +9,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 898407562875505322, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
+      propertyPath: score
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 898407562875505322, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
+      propertyPath: maxHealth
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 898407562875505322, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       propertyPath: deathParticle
       value: 
       objectReference: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7, type: 3}

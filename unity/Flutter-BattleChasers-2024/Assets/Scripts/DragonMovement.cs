@@ -30,7 +30,7 @@ public class DragonMovement : MonoBehaviour
     [Header("Attack")]
     private float attackCooldown = 4.0f;    // Time between attacks
     private float attackTimer = 0.0f;       // Timer to track cooldown
-    [SerializeField] int power = 50;
+    private int power = 200;
     [SerializeField] AttackCollider attackCollider;
 
     void Start()
@@ -211,6 +211,7 @@ public class DragonMovement : MonoBehaviour
 
         // Transition to flying directly toward the player
         behavior = "FlyToPlayer";
+        yield return new WaitForSeconds(1f);
         animator.SetTrigger("Glide");
     }
 
