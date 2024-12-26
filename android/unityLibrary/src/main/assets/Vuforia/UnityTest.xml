@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="warrior" size="5.000000 5.000000" />
+    <ImageTarget name="mage" size="5.000000 5.000000" />
+    <ImageTarget name="Knight" size="5.000000 5.000000" />
+    <ImageTarget name="rogue" size="5.000000 5.000000" />
+    <ImageTarget name="minion" size="5.000000 5.000000" />
+  </Tracking>
+</QCARConfig>

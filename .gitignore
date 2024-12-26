@@ -1,0 +1,108 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+
+
+# Ignore the Unity Library folder
+unity/Flutter-BattleChasers-2024/Library/
+
+# Unity-specific ignore rules
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Unity packages and caches
+[Pp]ackages/
+*.package
+
+# External packages
+unity/Flutter-BattleChasers-2024/Packages/com.ptc.vuforia.engine*.tgz
+
+# Burst Compiler artifacts
+unity/Flutter-BattleChasers-2024/Library/PackageCache/libburst*.dylib
+
+# ArtifactDB
+unity/Flutter-BattleChasers-2024/Library/ArtifactDB
+
+# Ignore Flutter/Dart-specific files (if applicable to this directory structure)
+unity/Flutter-BattleChasers-2024/.dart_tool/
+unity/Flutter-BattleChasers-2024/.flutter-plugins
+unity/Flutter-BattleChasers-2024/.flutter-plugins-dependencies
+unity/Flutter-BattleChasers-2024/.packages
+unity/Flutter-BattleChasers-2024/build/
+unity/Flutter-BattleChasers-2024/Assets/Editor/Migration
+
+# IDE/Editor-specific
+unity/Flutter-BattleChasers-2024/.idea/
+unity/Flutter-BattleChasers-2024/.vscode/
+*.iml
+*.sln
+*.csproj
+*.userprefs
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+unity/Flutter-BattleChasers-2024/.vs/Flutter-BattleChasers-2024/FileContentIndex/6ed53a7f-7027-4117-a2c3-f31b4ecb4e73.vsidx
+unity/Flutter-BattleChasers-2024/.vs/Flutter-BattleChasers-2024/FileContentIndex/a7f1df35-96ca-4a0a-8dd9-feac33a06885.vsidx
+unity/Flutter-BattleChasers-2024/.vs/Flutter-BattleChasers-2024/FileContentIndex/d0e531f8-e54c-4f09-9c6e-9e90b47001af.vsidx
+unity/Flutter-BattleChasers-2024/.vs/Flutter-BattleChasers-2024/FileContentIndex/2802a3b6-c4d9-4d6a-9160-b704f8eac180.vsidx
+unity/Flutter-BattleChasers-2024/.vs/Flutter-BattleChasers-2024/FileContentIndex/e914c24b-6983-469d-9673-b5b08de58493.vsidx
+unity/Flutter-BattleChasers-2024/.vs/Flutter-BattleChasers-2024/FileContentIndex/c7f04d86-7838-40d8-9446-42912d1a4dc5.vsidx
+android/unityLibrary/src/main/jniLibs/arm64-v8a/libil2cpp.so
+android/unityLibrary/symbols/arm64-v8a/libil2cpp.so
+unity/Flutter-BattleChasers-2024/.vs/Flutter-BattleChasers-2024/FileContentIndex/3f63071e-a3ec-425d-8df8-144991aa50b0.vsidx
+unity/Flutter-BattleChasers-2024/.vs/Flutter-BattleChasers-2024/FileContentIndex/765badc6-ea71-4c1e-9373-0fa9b4a6fb1b.vsidx
+unity/Flutter-BattleChasers-2024/.vs/Flutter-BattleChasers-2024/FileContentIndex/9927d77d-f979-4389-80f1-d2e37798e0a5.vsidx
+unity/Flutter-BattleChasers-2024/.vs/Flutter-BattleChasers-2024/FileContentIndex/a605d801-ba07-4f05-87b4-508ff151fdfa.vsidx
+unity/Flutter-BattleChasers-2024/.vs/Flutter-BattleChasers-2024/FileContentIndex/e432e524-f312-405d-84bf-9e91c7d58870.vsidx

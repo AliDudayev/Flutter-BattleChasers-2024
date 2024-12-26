@@ -1,0 +1,52 @@
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Asset Store downloaded assets
+/[Aa]ssets/AssetStoreTools*
+
+# Visual Studio/MonoDevelop/JetBrains Rider project files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+
+# Unity crash reports
+sysinfo.txt
+
+# Unity request files
+*.pid
+
+# Packages
+/[Pp]ackages/com.ptc.vuforia.engine*.tgz
+
+# Burst Compiler
+/[Ll]ibrary/PackageCache/libburst*.dylib
+
+# Artifacts
+/[Ll]ibrary/ArtifactDB
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Other generated files
+*.apk
+*.aab
+*.idb
