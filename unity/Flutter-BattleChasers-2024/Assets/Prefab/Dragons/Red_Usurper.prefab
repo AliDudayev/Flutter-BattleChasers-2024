@@ -1940,10 +1940,8 @@ MonoBehaviour:
   circleSpeed: 2
   circleCenter: {x: 0, y: 0, z: 0}
   flyToPlayerSpeed: 20
-  landDistance: 50
   descentSpeed: 5
   attackRange: 7.5
-  power: 150
   attackCollider: {fileID: 5109980158660583775}
 --- !u!114 &898407562875505322
 MonoBehaviour:
@@ -1957,8 +1955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080de86164295074fb4c8ccba0eae761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
-  score: 1000
+  maxHealth: 2000
+  score: 2000
   canvas: {fileID: 0}
   slider: {fileID: 0}
   lerpSpeed: 225
