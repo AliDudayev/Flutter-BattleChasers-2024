@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
 
         // Apply the same offsets as the camera-based approach
         location.y += 30; // Raise the spawn point by 30 units
-        location += player.transform.forward * 150; // Move 150 units in front of the player
+        location += player.transform.forward * 200; // Move 150 units in front of the player
 
         // Instantiate the portal and spawn the dragon
         GameObject portalInstance = Instantiate(portal, location, Quaternion.identity);

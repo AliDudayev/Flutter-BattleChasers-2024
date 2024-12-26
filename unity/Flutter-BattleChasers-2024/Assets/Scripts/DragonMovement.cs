@@ -10,7 +10,7 @@ public class DragonMovement : MonoBehaviour
     public Vector3 circleCenter;        // Center of circling movement (set dynamically)
 
     public float flyToPlayerSpeed = 5.0f;   // Speed when flying directly to the player
-    public float landDistance = 10.0f;      // Distance to land away from the player
+    private float landDistance = 80;      // Distance to land away from the player
     public float descentSpeed = 1.0f;       // Speed of descent during combat setup
 
     private Transform player;               // Player reference

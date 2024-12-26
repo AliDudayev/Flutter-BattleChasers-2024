@@ -4244,7 +4244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3484051073119483639, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3484051073119797139, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4252,11 +4252,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3484051073119797139, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.1
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3484051073119797139, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 140.65
+      value: 224
       objectReference: {fileID: 0}
     - target: {fileID: 3484051073119797139, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4288,11 +4288,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4326150242888964102, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4326150242888964102, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7975786722533952925, guid: a2b83bef3637cad459c238f6793a6906, type: 3}
+      propertyPath: landDistance
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8552,7 +8556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2695763816281680755, guid: a411013092b171340a801ef709a7bb88, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3324384697536115145, guid: a411013092b171340a801ef709a7bb88, type: 3}
       propertyPath: m_LocalPosition.x
