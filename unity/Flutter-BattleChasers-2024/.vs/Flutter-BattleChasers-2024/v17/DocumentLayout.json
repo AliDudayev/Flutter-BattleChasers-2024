@@ -1,0 +1,181 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|d:\\projects\\flutter\\flutter-battlechasers\\unity\\flutter-battlechasers-2024\\assets\\scripts\\health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\assets\\scripts\\charactercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\charactercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\assets\\scripts\\pusheffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pusheffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\assets\\scripts\\gameend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\assets\\scripts\\enemymovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemymovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\assets\\scripts\\dragonmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dragonmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\assets\\scripts\\destroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\destroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\assets\\scripts\\soundmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\soundmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\assets\\scripts\\attackcollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\attackcollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73D32D3B-7586-F33E-6204-75D05687F803}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Destroy.cs",
+              "DocumentMoniker": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\Destroy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Destroy.cs",
+              "ToolTip": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\Destroy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Destroy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T19:33:18.087Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Health.cs",
+              "DocumentMoniker": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\Health.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Health.cs",
+              "ToolTip": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\Health.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Health.cs",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAwwK4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T14:22:23.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CharacterController.cs",
+              "DocumentMoniker": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\CharacterController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CharacterController.cs",
+              "ToolTip": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\CharacterController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CharacterController.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAnwIkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T23:59:01.698Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PushEffect.cs",
+              "DocumentMoniker": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\PushEffect.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PushEffect.cs",
+              "ToolTip": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\PushEffect.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PushEffect.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAwBkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T23:58:53.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SoundManager.cs",
+              "DocumentMoniker": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\SoundManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SoundManager.cs",
+              "ToolTip": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\SoundManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SoundManager.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAmwDIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T23:37:27.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AttackCollider.cs",
+              "DocumentMoniker": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\AttackCollider.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AttackCollider.cs",
+              "ToolTip": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\AttackCollider.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AttackCollider.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAjwCwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T14:49:59.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAA2wH4AAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T14:47:58.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GameEnd.cs",
+              "DocumentMoniker": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\GameEnd.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameEnd.cs",
+              "ToolTip": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\GameEnd.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameEnd.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAswFYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T14:46:29.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EnemyMovement.cs",
+              "DocumentMoniker": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\EnemyMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyMovement.cs",
+              "ToolTip": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\EnemyMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EnemyMovement.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAuwNEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T14:50:16.014Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DragonMovement.cs",
+              "DocumentMoniker": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\DragonMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DragonMovement.cs",
+              "ToolTip": "D:\\Projects\\Flutter\\Flutter-BattleChasers\\unity\\Flutter-BattleChasers-2024\\Assets\\Scripts\\DragonMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DragonMovement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T13:33:39.065Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
