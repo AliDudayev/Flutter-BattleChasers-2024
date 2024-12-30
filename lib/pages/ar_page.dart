@@ -207,10 +207,13 @@ class _ArPageState extends State<ArPage> {
             width: 250, // Control the width of the dialog content
             child: TextField(
               controller: nameController,
-              decoration: const InputDecoration(labelText: "Enter your name"),
+              // make the input text color the same as the rest of this dialog
+              style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyLarge!.color),
             ),
           ),
           actions: [
+            const Text("Enter name above |"),
             // Submit Button
             TextButton(
               onPressed: () {
@@ -224,7 +227,8 @@ class _ArPageState extends State<ArPage> {
                   );
                 }
               },
-              child: const Text("Submit"),
+              child:
+                  const Text("Submit", style: TextStyle(color: Colors.black)),
             ),
             // Navigate to HomePage Button
             TextButton(
@@ -234,7 +238,7 @@ class _ArPageState extends State<ArPage> {
                   (Route<dynamic> route) => false,
                 );
               },
-              child: const Text("Home"),
+              child: const Text("Home", style: TextStyle(color: Colors.black)),
             ),
           ],
         );

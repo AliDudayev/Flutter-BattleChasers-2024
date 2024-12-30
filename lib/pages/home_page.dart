@@ -36,10 +36,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _playBackgroundMusic() async {
-    // Load and play the background music automatically
-    await _audioPlayer.setSourceAsset('assets/audio/BackgroundMusic.mp3');
-    _audioPlayer.setReleaseMode(ReleaseMode.loop); // Loop the music
-    await _audioPlayer.play(UrlSource('assets/audio/BackgroundMusic.mp3'));
+    // Load and play the background music from a URL
+    const String musicUrl =
+        'https://marnickm.github.io/videoHostMM/medieval-ambient-236809.mp3';
+    _audioPlayer.setReleaseMode(ReleaseMode.loop);
+    await _audioPlayer.play(UrlSource(musicUrl));
+  }
+
+  void _stopBackgroundMusic() {
+    _audioPlayer.stop();
   }
 
   @override
@@ -111,12 +116,17 @@ class _HomeContentState extends State<_HomeContent>
 
   @override
   Widget build(BuildContext context) {
+    // Access the parent widget's state
+    final _HomePageState? homePageState =
+        context.findAncestorStateOfType<_HomePageState>();
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           GestureDetector(
             onTap: () {
+              homePageState?._stopBackgroundMusic();
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const ArPage()),

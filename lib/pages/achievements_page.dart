@@ -105,15 +105,15 @@ class _AchievementsPageState extends State<AchievementsPage> {
                       const SizedBox(height: 10),
                       Text(
                         'Best score in a single game: ${userData!['highscore']}',
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       Text(
                         'Total Score: ${userData!['score']}',
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       Text(
                         'Total Enemies Killed: ${userData!['killcount']}',
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       const SizedBox(height: 20),
                       const Text(

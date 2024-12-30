@@ -5,9 +5,9 @@ import './database_helper.dart';
 void main() {
   runApp(const BattleChasersApp());
   //clearData();
-  insertInitialData();
+  //insertInitialData();
   //DatabaseHelper.resetDatabase();
-  initializeDragons();
+  //initializeDragons();
 }
 
 // clear the database and insert initial data
@@ -148,7 +148,8 @@ class BattleChasersApp extends StatelessWidget {
         textTheme: const TextTheme(
           headlineSmall: TextStyle(color: Colors.white),
           titleMedium: TextStyle(color: Colors.white),
-          bodyLarge: TextStyle(color: Colors.white),
+          bodyMedium: TextStyle(color: Colors.white),
+          bodyLarge: TextStyle(color: Colors.black),
         ),
       ),
       home: const HomePage(), // Your home page widget

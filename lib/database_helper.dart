@@ -33,6 +33,8 @@ class DatabaseHelper {
       // Parse current data
       int currentScore = user['score'] as int;
       int currentKillCount = user['killcount'] as int;
+      int currentHighscore = user['highscore'] as int;
+
       List<String> currentDragonsKilled =
           (user['dragonsKilled'] as String).split(',');
 
@@ -47,8 +49,7 @@ class DatabaseHelper {
             .map((dragon) => dragon.replaceAll(RegExp(r'\(Clone\)'), '').trim())
       }.toList();
 
-      // Determine the highscore
-      int highscore = (newScore > currentScore) ? newScore : currentScore;
+      int highscore = (score > currentScore) ? score : currentHighscore;
 
       // Update the database
       await db.update(
@@ -72,9 +73,6 @@ class DatabaseHelper {
         return dragon.replaceAll(RegExp(r'\(Clone\)'), '').trim();
       }).toList();
 
-      // Set the highscore as the score for new users
-      int highscore = score;
-
       await db.insert(
         'users',
         {
@@ -82,13 +80,13 @@ class DatabaseHelper {
           'score': score,
           'killcount': killCount,
           'dragonsKilled': cleanedDragons.join(','),
-          'highscore': highscore, // Set highscore for new user
+          'highscore': score,
         },
         conflictAlgorithm: ConflictAlgorithm.replace,
       );
 
       print(
-          'User $username inserted with score $score, kill count $killCount, dragons killed $dragonsKilled, highscore $highscore');
+          'User $username inserted with score $score, kill count $killCount, dragons killed $dragonsKilled, highscore $score');
     }
   }
 
