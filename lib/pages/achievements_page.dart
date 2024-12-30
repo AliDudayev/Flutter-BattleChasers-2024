@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../database_helper.dart';
+import '../../database_helper.dart';
+import 'video_page.dart'; // Import VideoPage
 
 class AchievementsPage extends StatefulWidget {
   const AchievementsPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _AchievementsPageState createState() => _AchievementsPageState();
 }
 
@@ -38,9 +38,6 @@ class _AchievementsPageState extends State<AchievementsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Achievements'),
-      ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
           : Padding(
@@ -81,12 +78,10 @@ class _AchievementsPageState extends State<AchievementsPage> {
                             dropdownColor: const Color(0xFF1C2834),
                             style: const TextStyle(color: Colors.white),
                             items: users
-                                .map(
-                                  (user) => DropdownMenuItem<String>(
-                                    value: user['username'],
-                                    child: Text(user['username']),
-                                  ),
-                                )
+                                .map((user) => DropdownMenuItem<String>(
+                                      value: user['username'],
+                                      child: Text(user['username']),
+                                    ))
                                 .toList(),
                             onChanged: (value) {
                               setState(() {
@@ -109,7 +104,11 @@ class _AchievementsPageState extends State<AchievementsPage> {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        'Best Score: ${userData!['score']}',
+                        'Best score in a single game: ${userData!['highscore']}',
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                      Text(
+                        'Total Score: ${userData!['score']}',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       Text(
@@ -132,7 +131,13 @@ class _AchievementsPageState extends State<AchievementsPage> {
                             (userData!['dragonsKilled'] as String)
                                 .split(',')
                                 .contains(dragon['id']);
-                        return _buildAchievementCard(dragonName, isDefeated);
+                        final videoUrl = dragon['videoUrl'];
+                        return _buildAchievementCard(
+                          dragon['id'],
+                          dragonName,
+                          isDefeated,
+                          videoUrl,
+                        );
                       }),
                     ],
                   ],
@@ -142,19 +147,38 @@ class _AchievementsPageState extends State<AchievementsPage> {
     );
   }
 
-  Widget _buildAchievementCard(String dragonName, bool isAchieved) {
-    return Card(
-      color: const Color(0xFF2A3A4D),
-      child: ListTile(
-        title: Text(
-          dragonName,
-          style: const TextStyle(color: Colors.white),
+  Widget _buildAchievementCard(
+      String dragonId, String dragonName, bool isAchieved, String? videoUrl) {
+    return Column(
+      children: [
+        Card(
+          color: const Color(0xFF2A3A4D),
+          child: ListTile(
+            title: Text(
+              dragonName,
+              style: const TextStyle(color: Colors.white),
+            ),
+            trailing: Icon(
+              isAchieved ? Icons.check : Icons.close,
+              color: isAchieved ? Colors.green : Colors.red,
+            ),
+            onTap: () {
+              if (videoUrl != null) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => VideoPage(
+                      dragonId: dragonId,
+                      videoUrl: videoUrl,
+                      dragonName: dragonName,
+                    ),
+                  ),
+                );
+              }
+            },
+          ),
         ),
-        trailing: Icon(
-          isAchieved ? Icons.check : Icons.close,
-          color: isAchieved ? Colors.green : Colors.red,
-        ),
-      ),
+      ],
     );
   }
 }

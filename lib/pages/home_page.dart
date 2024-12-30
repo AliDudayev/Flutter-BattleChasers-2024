@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'leaderboard_page.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'achievements_page.dart';
-import '../pages/ar_page.dart';
+import 'ar_page.dart';
+import 'leaderboard_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,17 +15,36 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    const _HomeContent(), // Updated HomeContent with Play button and logo
+    const _HomeContent(),
     const LeaderboardPage(),
     const AchievementsPage(),
   ];
 
+  late AudioPlayer _audioPlayer;
+
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer = AudioPlayer();
+    _playBackgroundMusic();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _audioPlayer.stop(); // Stop the music when the page is disposed
+  }
+
+  void _playBackgroundMusic() async {
+    // Load and play the background music automatically
+    await _audioPlayer.setSourceAsset('assets/audio/BackgroundMusic.mp3');
+    _audioPlayer.setReleaseMode(ReleaseMode.loop); // Loop the music
+    await _audioPlayer.play(UrlSource('assets/audio/BackgroundMusic.mp3'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Battle Chasers'),
-      ),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -33,6 +53,9 @@ class _HomePageState extends State<HomePage> {
             _currentIndex = index;
           });
         },
+        selectedItemColor:
+            const Color(0xFFFF440E), // Set selected icon color to orange
+        unselectedItemColor: Colors.grey, // Set unselected icon color
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -52,8 +75,39 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class _HomeContent extends StatelessWidget {
-  const _HomeContent({super.key});
+class _HomeContent extends StatefulWidget {
+  const _HomeContent();
+
+  @override
+  _HomeContentState createState() => _HomeContentState();
+}
+
+class _HomeContentState extends State<_HomeContent>
+    with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Initialize the animation controller for the border effect
+    _controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    )..repeat(reverse: false); // Make it repeat continuously
+
+    // Animation to loop from 0.0 to 1.0
+    _animation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.linear),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,23 +115,48 @@ class _HomeContent extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Logo Image
-          Image.asset(
-            'assets/images/logo.png',
-            width: 150,
-            height: 150,
-          ),
-          const SizedBox(height: 20),
-          // Play Button
-          ElevatedButton(
-            onPressed: () {
-              // Navigate to the ARPage
+          GestureDetector(
+            onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const ArPage()),
               );
             },
-            child: const Text('Play'),
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: AnimatedBuilder(
+                animation: _animation,
+                builder: (context, child) {
+                  // Calculate the position of the "traveling" effect
+                  double borderValue = _animation.value;
+
+                  return AnimatedContainer(
+                    duration: const Duration(milliseconds: 100),
+                    curve: Curves.easeInOut,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFFF440E), // Button color
+                      borderRadius:
+                          BorderRadius.circular(30), // Rounded corners
+                      border: Border.all(
+                        width: 4,
+                        color: Color.lerp(
+                            Colors.orange, Colors.yellow, borderValue)!,
+                      ), // Animate border color
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 60),
+                    child: const Text(
+                      'Play',
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
         ],
       ),

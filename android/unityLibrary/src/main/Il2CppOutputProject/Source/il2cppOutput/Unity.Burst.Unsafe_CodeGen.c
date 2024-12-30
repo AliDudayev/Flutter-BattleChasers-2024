@@ -74,14 +74,14 @@ static const int32_t s_InvokerIndices[37] =
 	0,
 	0,
 	0,
-	4878,
-	4878,
-	4878,
-	4878,
-	4883,
-	4883,
-	4883,
-	4883,
+	4854,
+	4854,
+	4854,
+	4854,
+	4859,
+	4859,
+	4859,
+	4859,
 	0,
 	0,
 	0,
@@ -99,8 +99,8 @@ static const int32_t s_InvokerIndices[37] =
 	0,
 	0,
 	0,
-	3249,
-	3249,
+	3231,
+	3231,
 };
 static const Il2CppTokenRangePair s_rgctxIndices[27] = 
 {
@@ -205,7 +205,6 @@ static const Il2CppRGCTXDefinition s_rgctxValues[35] =
 	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_TU26_t7149E8F4BE7727FB21BB16B21B61688592AFB3FB },
 	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_TU26_t83D4F190A8849032DD988EA86A7B9311A5309257 },
 };
-extern const Il2CppDebuggerMetadataRegistration g_DebuggerMetadataRegistrationUnity_Burst_Unsafe;
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Unity_Burst_Unsafe_CodeGenModule;
 const Il2CppCodeGenModule g_Unity_Burst_Unsafe_CodeGenModule = 
 {
@@ -221,7 +220,7 @@ const Il2CppCodeGenModule g_Unity_Burst_Unsafe_CodeGenModule =
 	s_rgctxIndices,
 	35,
 	s_rgctxValues,
-	&g_DebuggerMetadataRegistrationUnity_Burst_Unsafe,
+	NULL,
 	NULL,
 	NULL,
 	NULL,

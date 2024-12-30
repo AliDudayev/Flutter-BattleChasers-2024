@@ -189,15 +189,26 @@ class _ArPageState extends State<ArPage> {
   void _promptForName(int score, List<String> killedDragons, int killCount) {
     TextEditingController nameController = TextEditingController();
 
+    Future<void> _saveGameResult(String name, int score, int killCount,
+        List<String> killedDragons) async {
+      await DatabaseHelper.insertUser(name, score, killCount, killedDragons);
+      print(
+          'Game result saved: $name, Score: $score, Kill Count: $killCount, Killed Dragons: $killedDragons');
+    }
+
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text("Game Over!"),
-          content: TextField(
-            controller: nameController,
-            decoration: const InputDecoration(labelText: "Enter your name"),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          content: SizedBox(
+            width: 250, // Control the width of the dialog content
+            child: TextField(
+              controller: nameController,
+              decoration: const InputDecoration(labelText: "Enter your name"),
+            ),
           ),
           actions: [
             // Submit Button
@@ -223,28 +234,11 @@ class _ArPageState extends State<ArPage> {
                   (Route<dynamic> route) => false,
                 );
               },
-              child: const Text("Go to Home"),
-            ),
-            // Navigate to AchievementsPage Button
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (context) => const AchievementsPage()),
-                );
-              },
-              child: const Text("Achievements"),
+              child: const Text("Home"),
             ),
           ],
         );
       },
     );
-  }
-
-  Future<void> _saveGameResult(
-      String name, int score, int killCount, List<String> killedDragons) async {
-    await DatabaseHelper.insertUser(name, score, killCount, killedDragons);
-    print(
-        'Game result saved: $name, Score: $score, Kill Count: $killCount, Killed Dragons: $killedDragons');
   }
 }
