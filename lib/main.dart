@@ -7,7 +7,7 @@ void main() {
   //clearData();
   //insertInitialData();
   //DatabaseHelper.resetDatabase();
-  //initializeDragons();
+  initializeDragons();
 }
 
 // clear the database and insert initial data

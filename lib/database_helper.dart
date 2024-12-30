@@ -49,7 +49,7 @@ class DatabaseHelper {
             .map((dragon) => dragon.replaceAll(RegExp(r'\(Clone\)'), '').trim())
       }.toList();
 
-      int highscore = (score > currentScore) ? score : currentHighscore;
+      int highscore = (score > currentHighscore) ? score : currentHighscore;
 
       // Update the database
       await db.update(

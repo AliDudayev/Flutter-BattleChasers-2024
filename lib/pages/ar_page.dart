@@ -213,7 +213,8 @@ class _ArPageState extends State<ArPage> {
             ),
           ),
           actions: [
-            const Text("Enter name above |"),
+            const Text("Enter name above |",
+                style: TextStyle(color: Colors.black)),
             // Submit Button
             TextButton(
               onPressed: () {

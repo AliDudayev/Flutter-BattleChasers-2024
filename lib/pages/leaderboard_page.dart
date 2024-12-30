@@ -32,7 +32,7 @@ class LeaderboardPage extends StatelessWidget {
                 return Center(
                   child: Text(
                     'No scores available.',
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 );
               }

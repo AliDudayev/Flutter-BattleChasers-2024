@@ -54,47 +54,52 @@ class _AchievementsPageState extends State<AchievementsPage> {
                         color: Colors.white,
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    FutureBuilder<List<Map<String, dynamic>>>(
-                      future: DatabaseHelper.fetchAllUsers(),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (snapshot.hasError ||
-                            snapshot.data == null ||
-                            snapshot.data!.isEmpty) {
-                          return const Text(
-                            'No users available.',
-                            style: TextStyle(color: Colors.white),
-                          );
-                        } else {
-                          final users = snapshot.data!;
-                          return DropdownButton<String>(
-                            value: selectedUsername,
-                            isExpanded: true,
-                            dropdownColor: const Color(0xFF1C2834),
-                            style: const TextStyle(color: Colors.white),
-                            items: users
-                                .map((user) => DropdownMenuItem<String>(
-                                      value: user['username'],
-                                      child: Text(user['username']),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                selectedUsername = value;
-                                userData = null;
-                              });
-                              if (value != null) {
-                                _fetchUserData(value);
-                              }
-                            },
-                          );
-                        }
-                      },
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: FutureBuilder<List<Map<String, dynamic>>>(
+                        future: DatabaseHelper.fetchAllUsers(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          } else if (snapshot.hasError ||
+                              snapshot.data == null ||
+                              snapshot.data!.isEmpty) {
+                            return const Text(
+                              'No users available.',
+                              style: TextStyle(color: Colors.white),
+                            );
+                          } else {
+                            final users = snapshot.data!;
+                            return DropdownButton<String>(
+                              value: selectedUsername,
+                              isExpanded: true,
+                              dropdownColor: const Color(0xFF1C2834),
+                              style: const TextStyle(color: Colors.white),
+                              items: users
+                                  .map((user) => DropdownMenuItem<String>(
+                                        value: user['username'],
+                                        child: Text(user['username']),
+                                      ))
+                                  .toList(),
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedUsername = value;
+                                  userData = null;
+                                });
+                                if (value != null) {
+                                  _fetchUserData(value);
+                                }
+                              },
+                            );
+                          }
+                        },
+                      ),
                     ),
                     const SizedBox(height: 20),
                     if (userData != null) ...[
